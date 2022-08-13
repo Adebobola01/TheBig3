@@ -1,0 +1,25 @@
+{
+    "name": "big3",
+    "version": "1.0.0",
+    "description": "NFT marketplace for the Anime Big 3",
+    "main": "index.js",
+    "scripts": {
+        "watch:sass": "sass --watch sass/main.scss css/style.css",
+        "devserver": "live-server",
+        "start": "npm-run-all --parallel devserver watch:sass"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Adebobola01/TheBig3.git"
+    },
+    "author": "Adebobola Oyedunmade",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Adebobola01/TheBig3/issues"
+    },
+    "homepage": "https://github.com/Adebobola01/TheBig3#readme",
+    "devDependencies": {
+        "npm-run-all": "^4.1.5",
+        "sass": "^1.54.4"
+    }
+}
