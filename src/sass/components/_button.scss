@@ -35,3 +35,23 @@
         border: 1px solid #db469f;
     }
 }
+
+.explore-cta {
+    background: linear-gradient(to right, #db469f, #7891d5);
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    width: 12rem;
+    padding: 1rem;
+    color: white;
+    font-size: 1.2rem;
+    margin-top: 8rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+
+    &:hover {
+        background: linear-gradient(to left, #db469f, #7891d5);
+        opacity: 0.8;
+    }
+}

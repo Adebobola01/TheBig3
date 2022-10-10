@@ -1,0 +1,22 @@
+.footer {
+    display: flex;
+    background-color: black;
+    padding: 2rem 5rem;
+    height: 20rem;
+
+    &__text {
+        display: flex;
+        flex-direction: column;
+        font-size: 2rem;
+
+        img {
+            height: 4rem;
+            width: 4rem;
+        }
+
+        p {
+            margin: 1rem 0 0 0;
+            font-size: 3rem;
+        }
+    }
+}

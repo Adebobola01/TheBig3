@@ -1,21 +1,17 @@
 .nav-bar {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     color: #7891d5;
     background-color: black;
     font-size: 1.5rem;
     padding: 1rem;
     // height: 4rem;
-
-    &__logo-box {
-        width: 20%;
-    }
 }
 .search {
     // background-color: rgb(36, 24, 47);
     height: 3rem;
-    width: 30rem;
+    width: 40rem;
     position: relative;
 
     &__field {
@@ -43,5 +39,17 @@
         position: absolute;
         left: 1rem;
         top: 0.7rem;
+    }
+}
+
+.logo {
+    // width: 20%;
+    margin-right: 1rem;
+
+    &__title {
+        font-size: 3rem;
+        color: white;
+        width: 3rem;
+        margin-bottom: 10px;
     }
 }

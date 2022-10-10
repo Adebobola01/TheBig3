@@ -41,8 +41,13 @@
         </div>
         <header class="header">
             <div class="nav-bar">
-                <div class="header__logo-box">
-                    <span>NAV LOGO</span>
+                <div class="logo">
+                    <img
+                        src="./src/images/big3-logo.png"
+                        alt="logo"
+                        class="logo__icon"
+                    />
+                    <span class="logo__title">Big3</span>
                 </div>
                 <form class="search">
                     <svg class="search__icon">
@@ -62,8 +67,9 @@
                     />
                 </form>
                 <div class="nav">
+                    <a href="#" class="nav__link"> Explore </a>
+                    <a href="#" class="nav__link"> Create </a>
                     <a href="#" class="nav__link"> Profile </a>
-                    <a href="#" class="nav__link"> Mint </a>
 
                     <div class="btn__container">
                         <button class="connect__wallet--btn">
@@ -74,10 +80,43 @@
             </div>
         </header>
         <main class="main">
-            <section class="Preview">
-                <article></article>
-                <div class="nft-card"></div>
+            <section class="section-hero">
+                <div class="row">
+                    <div class="col-1-of-2">
+                        <div class="nft-container">
+                            <div class="nft-image">
+                                <img
+                                    src="./src/images/uzumakiFamily.png"
+                                    alt="hero image"
+                                />
+                            </div>
+                            <div class="nft-details">
+                                <img
+                                    src="./src/images/itachi.png"
+                                    alt="creator icon"
+                                />
+                                <div class="nft-description">
+                                    <h3>< *name of the nft></h2>
+                                    <span>Floor: 0.25 ETH</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-1-of-2">
+                        <div class="row__content">
+                            <h2>Collect, sell NFTs</h2>
+                            <p>Explore, collect, buy and sell anime based NFTs</p>
+                        </div>
+                        <button class="explore-cta">EXPLORE</button>
+                    </div>
+                </div>
             </section>
         </main>
+        <footer class="footer">
+            <div class="footer__text">
+                <img src="./src/images/big3-logo.png" alt="logo"  class="footer__logo">
+                <p>Big3.</p>
+            </div>
+        </footer>
     </body>
 </html>
