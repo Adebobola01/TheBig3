@@ -183,7 +183,7 @@ body {
 }
 
 .section-hero {
-  padding: 10rem;
+  padding: 10rem 10rem 5rem;
   font-size: 2rem;
   background-image: linear-gradient(rgba(16, 29, 44, 0.9), rgba(16, 29, 44, 0.9)), url("../images/background-Image.jpg");
   background-size: cover;

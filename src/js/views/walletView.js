@@ -20,7 +20,12 @@ class WalletView extends View {
         this.metaWallet.addEventListener("click", function () {
             handler2();
         });
+        this.backdrop.addEventListener("click", function () {
+            handler1();
+        });
     }
+
+    dos;
 
     displayAddress(address) {
         this.btnContainer.innerHTML = `${address.slice(0, 3)}...${address.slice(
