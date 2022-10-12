@@ -266,8 +266,9 @@ body {
   height: 50rem;
 }
 .profile__nft-preview {
-  width: 40%;
-  background-color: rgb(49, 45, 94);
+  width: 30%;
+  height: 100%;
+  background-color: rgb(46, 43, 75);
 }
 .profile__nft-preview--image {
   width: 100%;
@@ -275,6 +276,8 @@ body {
 .profile__user {
   background-color: rgb(22, 21, 34);
   width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 .profile__user--header {
   display: flex;
@@ -296,6 +299,29 @@ body {
   margin-left: 2rem;
   font-size: 1.5rem;
   color: rgb(126, 121, 121);
+}
+.profile__user--body {
+  flex-grow: 1;
+  padding: 3rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.profile-content {
+  border: 1px dashed rgb(187, 174, 174);
+  border-radius: 1rem;
+  height: 10rem;
+  width: 100%;
+  padding: 2rem;
+  text-align: center;
+  vertical-align: middle;
+  display: flex;
+  align-items: center;
+}
+.profile-content span {
+  font-size: 3rem;
+  text-align: center;
+  width: 100%;
 }
 
 /*# sourceMappingURL=style.css.map */
