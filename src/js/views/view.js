@@ -1,14 +1,16 @@
 export default class View {
-    render(data) {
-        if (!data) {
-            return this.renderError();
+    _data;
+    render(data, render = true) {
+        if (data) {
+            this._data = data;
         }
         const markup = this._generateMarkup();
         this._clear();
-        this.parentElement.insertAdjacentHTMl("afterbegin", markup);
+        console.log(this._parentElement);
+        this._parentElement.insertAdjacentHTML("afterbegin", markup);
     }
 
     _clear() {
-        this.parentElement.innerHTML = "";
+        this._parentElement.innerHTML = "";
     }
 }

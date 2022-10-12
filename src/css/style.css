@@ -13,11 +13,11 @@ body {
 }
 
 .backdrop {
-  height: 100vh;
+  height: 200vh;
   width: 100vw;
   position: fixed;
   z-index: 100;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.8);
   display: block;
 }
 
