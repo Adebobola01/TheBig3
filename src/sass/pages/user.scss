@@ -1,11 +1,9 @@
 .profile {
     display: flex;
-    height: 50rem;
+    min-height: 50rem;
     &__nft-preview {
         width: 30%;
-        height: 100%;
-        // background-color: transparent opacity($color: white);
-        background-color: rgb(46, 43, 75);
+        background-color: rgb(30, 28, 46);
 
         &--image {
             width: 100%;

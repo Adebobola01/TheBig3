@@ -129,6 +129,9 @@ body {
   font-size: 1.5rem;
   padding: 1rem;
 }
+.nav-bar a {
+  text-decoration: none;
+}
 
 .search {
   height: 3rem;
@@ -136,6 +139,7 @@ body {
   position: relative;
 }
 .search__field {
+  outline: none;
   height: 100%;
   width: 100%;
   border: 1px solid #7891d5;
@@ -183,7 +187,7 @@ body {
 }
 
 .section-hero {
-  padding: 10rem 10rem 5rem;
+  padding: 7rem 10rem 5rem;
   font-size: 2rem;
   background-image: linear-gradient(rgba(16, 29, 44, 0.9), rgba(16, 29, 44, 0.9)), url("../images/background-Image.jpg");
   background-size: cover;
@@ -242,33 +246,70 @@ body {
 }
 
 .footer {
-  display: flex;
   background-color: black;
-  padding: 2rem 5rem;
-  height: 20rem;
-}
-.footer__text {
+  bottom: 0;
+  width: 100%;
+  color: white;
   display: flex;
-  flex-direction: column;
-  font-size: 2rem;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-left: 24rem;
 }
-.footer__text img {
-  height: 4rem;
-  width: 4rem;
+.footer__container {
+  padding: 1rem;
+  display: grid;
+  grid-auto-rows: auto;
+  row-gap: 1.5rem;
+  width: 50rem;
 }
-.footer__text p {
-  margin: 1rem 0 0 0;
-  font-size: 3rem;
+.footer__nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.footer-nav__link {
+  font-size: 1.3rem;
+  text-decoration: none;
+  color: white;
+}
+.footer-nav__link:not(:last-child) {
+  margin-right: 5rem;
+}
+.footer-nav__link:hover {
+  color: gray;
+}
+.footer__socials {
+  display: flex;
+}
+
+.copyright {
+  font-family: "Nunito", sans-serif;
+  text-align: center;
+  margin: 0;
+}
+
+.dev {
+  text-decoration: none;
+  color: white;
+  font-size: 1.2rem;
+}
+
+.social__link {
+  width: 3rem;
+  text-decoration: none;
+}
+
+.social-img {
+  width: 100%;
 }
 
 .profile {
   display: flex;
-  height: 50rem;
+  min-height: 50rem;
 }
 .profile__nft-preview {
   width: 30%;
-  height: 100%;
-  background-color: rgb(46, 43, 75);
+  background-color: rgb(30, 28, 46);
 }
 .profile__nft-preview--image {
   width: 100%;
