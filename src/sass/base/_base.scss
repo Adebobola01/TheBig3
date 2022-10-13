@@ -18,8 +18,19 @@ body {
     z-index: 100;
     background: rgba(0, 0, 0, 0.8);
     display: block;
+    opacity: 0;
+    transform: translateY(-100vh);
 }
 
 // .wallets {
 //     height: auto;
 // }
+.open-wallets {
+    opacity: 1 !important;
+    transform: translateY(0) translate(-50%, -50%) !important;
+}
+
+.open {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}

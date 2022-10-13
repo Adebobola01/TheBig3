@@ -9,9 +9,13 @@ class WalletView extends View {
     btnContainer = document.querySelector(".btn__container");
 
     toggle() {
-        this.walletContainer.classList.toggle("hidden");
-        this.backdrop.classList.toggle("hidden");
+        this.walletContainer.classList.toggle("open-wallets");
+        this.backdrop.classList.toggle("open");
     }
+
+    // showWallets() {
+    //     this.walletContainer.classList.
+    // }
 
     WalletsHandler(handler1, handler2) {
         this.connectBtn.addEventListener("click", function () {
