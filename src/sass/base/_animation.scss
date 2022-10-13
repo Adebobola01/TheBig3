@@ -1,0 +1,22 @@
+@keyframes wallet {
+    0% {
+        transform: translateY(-100vh) translate(-50%, -50%);
+    }
+    80% {
+        transform: translateY(10vh) translate(-50%, -50%);
+    }
+    100% {
+        transform: translateY(0) translate(-50%, -50%);
+    }
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 100%;
+        transform: translateY(0);
+    }
+    100% {
+        background-position: 100% 150%;
+        transform: translateY(-3px);
+    }
+}

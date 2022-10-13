@@ -1,5 +1,5 @@
 .connect__wallet--btn {
-    background: linear-gradient(to right, #db469f, #7891d5);
+    background-color: transparent;
     cursor: pointer;
     border: none;
     font-size: 1.2rem;
@@ -9,10 +9,11 @@
     color: white;
     font-size: 1.2rem;
     transition: all 4s;
+    overflow: hidden;
 
     &:hover {
-        background: linear-gradient(to left, #db469f, #7891d5);
-        opacity: 0.8;
+        // animation: gradient 1s;
+        // opacity: 0.8;
     }
 }
 
@@ -39,7 +40,7 @@
 }
 
 .explore-cta {
-    background: linear-gradient(to right, #db469f, #7891d5);
+    background-color: transparent;
     cursor: pointer;
     border-radius: 8px;
     font-size: 1.2rem;
@@ -47,14 +48,27 @@
     padding: 1rem;
     color: white;
     font-size: 1.2rem;
-    margin-top: 8rem;
+    margin-right: 0;
     text-align: center;
     display: flex;
     justify-content: center;
     text-decoration: none;
 
     &:hover {
-        background: linear-gradient(to left, #db469f, #7891d5);
-        opacity: 0.8;
+        // background: linear-gradient(to left, #db469f, #7891d5);
+        // opacity: 0.8;
+    }
+}
+
+.btn__container {
+    display: inline-block;
+    margin-top: 8rem;
+    background: linear-gradient(to right, #db469f, #7891d5, #db469f);
+    background-position: 0% 50%;
+    background-size: 150% 150%;
+
+    &:hover {
+        animation: gradient 1.2s forwards;
+        // opacity: 0.6;
     }
 }
