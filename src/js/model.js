@@ -14,7 +14,7 @@ export const getUserAccount = async () => {
             method: "eth_requestAccounts",
         });
         const account = accounts[0];
-        const result = await fetch("http://localhost:8080/message", {
+        const result = await fetch("http://localhost:3000/message", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -35,7 +35,7 @@ export const verifyMessage = async () => {
     console.log(state.message);
     console.log(state.signature);
     try {
-        const result = await fetch("http://localhost:8080/verify", {
+        const result = await fetch("http://localhost:3000/verify", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -50,6 +50,21 @@ export const verifyMessage = async () => {
             state.address = verified.address;
             state.isConnected = true;
         }
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export const getHeroData = async () => {
+    try {
+        const result = await fetch("http://localhost:3000/heroNFT", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+        const data = await result.json();
+        return JSON.parse(data.data);
     } catch (error) {
         console.log(error);
     }

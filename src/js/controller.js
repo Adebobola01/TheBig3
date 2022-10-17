@@ -1,5 +1,6 @@
 import * as model from "./model.js";
 import walletView from "./views/walletView.js";
+import heroView from "./views/heroView.js";
 
 const controlDisplayWallet = async function () {
     try {
@@ -30,9 +31,22 @@ const controlConnected = async function () {
     }
 };
 
+const controlHero = async function () {
+    try {
+        const data = await model.getHeroData();
+        const link = data.image.split("//")[1];
+        console.log(link);
+        data.image = `https://ipfs.moralis.io:2053/ipfs/${link}`;
+        heroView.render(data);
+    } catch (error) {
+        console.log(error);
+    }
+};
+
 const init = function () {
     walletView.WalletsHandler(controlDisplayWallet, controlConnectWallet);
     controlConnected();
+    controlHero();
 };
 
 init();

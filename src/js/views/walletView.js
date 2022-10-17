@@ -32,6 +32,7 @@ class WalletView extends View {
     dos;
 
     displayAddress(address) {
+        this.btnContainer.style.background = "transparent";
         this.btnContainer.innerHTML = `${address.slice(0, 3)}...${address.slice(
             -4
         )}`;

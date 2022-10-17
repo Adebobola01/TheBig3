@@ -53,6 +53,10 @@
     display: flex;
     justify-content: center;
     text-decoration: none;
+    // font-weight: 500;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+        "Lucida Sans", Arial, sans-serif;
+    font-weight: bold;
 
     &:hover {
         // background: linear-gradient(to left, #db469f, #7891d5);
@@ -68,7 +72,7 @@
     background-size: 150% 150%;
 
     &:hover {
-        animation: gradient 1.2s forwards;
+        animation: gradient 1.5s forwards;
         // opacity: 0.6;
     }
 }
