@@ -5,9 +5,18 @@ html {
 
 body {
     margin: 0;
+    height: 100%;
     background-color: rgb(22 21 34);
     color: white;
+    // padding-top: 7rem;
 }
+
+.main {
+    // margin-top: 7rem;
+    padding-top: 7rem;
+    position: relative;
+}
+
 .hidden {
     display: none !important;
 }
@@ -20,7 +29,7 @@ body {
     background: rgba(0, 0, 0, 0.8);
     display: block;
     opacity: 0;
-    transform: translateY(-100vh);
+    transform: translateX(-100vh);
 }
 
 // .wallets {

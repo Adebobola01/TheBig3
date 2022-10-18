@@ -1,0 +1,30 @@
+.explore {
+    &__container {
+        display: flex;
+        overflow: hidden;
+        // position: relative;
+        height: 100vh;
+        margin-bottom: 4rem;
+    }
+
+    &__sort {
+        background-color: white;
+        position: sticky;
+        min-width: 20rem;
+        overflow-y: auto;
+        max-height: 100vh;
+
+        p {
+            color: black;
+        }
+    }
+    &__main {
+        // flex-grow: 3;
+        display: flex;
+        padding: 3rem 0 3rem 3rem;
+        flex-wrap: wrap;
+        // margin-left: 20rem;
+        // overflow: scroll;
+        overflow-y: auto;
+    }
+}
