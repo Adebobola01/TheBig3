@@ -257,13 +257,12 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 20rem;
-  height: 30rem;
+  width: 25rem;
+  height: 40rem;
   background-color: rgb(34, 33, 49);
   cursor: pointer;
   text-decoration: none;
   color: white;
-  margin-top: 2rem;
   animation: rotateNFT 7s 0s infinite;
   transition: all 5s;
 }
@@ -510,11 +509,9 @@ body {
   min-height: 50rem;
 }
 .profile__nft-preview {
-  width: 30%;
   background-color: rgb(30, 28, 46);
-  padding: 1rem;
+  padding: 0 2rem 6rem;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
@@ -597,13 +594,13 @@ body {
 
 .nft {
   display: flex;
-  min-height: 50rem;
+  height: 100vh;
 }
 .nft__details {
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
-  padding: 2rem;
+  overflow-y: scroll;
+  padding: 2rem 4rem 2rem 3rem;
   font-size: 1.5rem;
 }
 .nft__details a {
@@ -615,6 +612,104 @@ body {
 }
 .nft__details--heading {
   border-bottom: 1px solid gray;
+}
+.nft__details--body {
+  font-family: "Courier New", Courier, monospace;
+}
+
+.description {
+  margin-top: 4rem;
+}
+.description__body {
+  border: 1px solid white;
+  border-radius: 1rem;
+  padding: 2rem;
+}
+
+.properties {
+  margin-top: 3rem;
+}
+.properties__body {
+  border: 1px solid white;
+  border-radius: 1rem;
+  padding: 1rem 2rem 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 80%;
+  margin-left: 2rem;
+}
+
+.property {
+  font-size: 1rem;
+  height: 4rem;
+  background-color: rgba(219, 70, 159, 0.2);
+  display: flex;
+  align-items: center;
+  width: max-content;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+}
+.property:not(:last-child) {
+  margin-right: 1rem;
+}
+.property h2 {
+  margin: 0;
+  display: inline;
+}
+
+.details {
+  margin-top: 3rem;
+}
+.details__body {
+  width: 70%;
+}
+
+.detail {
+  display: flex;
+  justify-content: space-between;
+}
+.detail:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+.purchase {
+  margin: 2rem 0 0 5rem;
+  border: 1px solid white;
+  padding: 2rem;
+  border-radius: 0.8rem;
+  width: 30rem;
+}
+.purchase p {
+  margin: 0;
+  color: gray;
+}
+.purchase span {
+  margin-top: 0.5rem;
+}
+.purchase__btn {
+  background-color: rgb(219, 70, 159);
+  padding: 1.2rem;
+  border-radius: 1rem;
+  color: #fff;
+  font-size: 1.1rem;
+  margin-right: 1rem;
+  width: 40%;
+  font-weight: 900;
+}
+.purchase__btn:hover {
+  background-color: rgba(219, 70, 159, 0.5);
+}
+.purchase__btns {
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.offer-btn {
+  background-color: transparent;
+  border: 1px solid #fff;
 }
 
 /*# sourceMappingURL=style.css.map */
