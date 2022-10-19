@@ -253,9 +253,10 @@ body {
   margin: 1rem 0 0 0;
 }
 
-.nft-details__preview {
+.nft__details--preview {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   width: 20rem;
   height: 30rem;
   background-color: rgb(34, 33, 49);
@@ -266,7 +267,7 @@ body {
   animation: rotateNFT 7s 0s infinite;
   transition: all 5s;
 }
-.nft-details__preview:hover {
+.nft__details--preview:hover {
   transform: rotateY(0deg);
   animation: none;
 }
@@ -515,6 +516,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 .profile__nft-preview--image {
   width: 100%;
@@ -591,6 +593,28 @@ body {
   padding: 3rem 0 3rem 3rem;
   flex-wrap: wrap;
   overflow-y: auto;
+}
+
+.nft {
+  display: flex;
+  min-height: 50rem;
+}
+.nft__details {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 2rem;
+  font-size: 1.5rem;
+}
+.nft__details a {
+  text-decoration: none;
+  color: #7891d5;
+}
+.nft__details a:hover {
+  color: gray;
+}
+.nft__details--heading {
+  border-bottom: 1px solid gray;
 }
 
 /*# sourceMappingURL=style.css.map */

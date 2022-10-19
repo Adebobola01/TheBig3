@@ -4,8 +4,15 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
+        <title>Details</title>
         <link rel="stylesheet" href="./src/css/style.css" />
+        <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/@walletconnect/web3-provider@1.8.0/dist/umd/index.min.js"
+            integrity="sha256-OfIB2zuUgSYcwWYMPC+YgPsJ70TB5f5dni/Z3rgYvRA="
+            crossorigin="anonymous"
+        ></script>
+        <script type="module" src="./src/js/controller.js" defer></script>
     </head>
     <body>
         <div class="backdrop hidden"></div>
@@ -76,9 +83,9 @@
             </div>
         </header>
         <main class="main">
-            <div class="profile">
+            <div class="nft">
                 <section class="profile__nft-preview">
-                    <div class="nft-details__preview">
+                    <div class="nft__details--preview">
                         <img
                             src="./src/images/uzumakiFamily.png"
                             alt="nft"
@@ -92,21 +99,13 @@
                         </div>
                     </div>
                 </section>
-                <section class="profile__user">
-                    <div class="profile__user--header">
-                        <img
-                            src="./src/images/madara.png"
-                            alt="user-avi"
-                            class="profile__user--image"
-                        />
-                        <div class="profile__user--details">
-                            <p class="profile__user--title">
-                                Adebobola Oyedunmade
-                            </p>
-                            <span class="profile__user--address"
-                                >0x000...000</span
-                            >
-                        </div>
+                <section class="nft__details">
+                    <div class="nft__details--heading">
+                        <a href="#" class="nft__details--collection">Azuki</a>
+                        <h3 class="nft___details--name">Azuki #25</h3>
+                        <p class="nft__details--owner">
+                            Owned by <a href="#">Adebobola</a>
+                        </p>
                     </div>
                     <div class="profile__user--body">
                         <div class="profile-content">

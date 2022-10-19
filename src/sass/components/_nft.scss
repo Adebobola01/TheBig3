@@ -63,9 +63,10 @@
     }
 }
 
-.nft-details__preview {
+.nft__details--preview {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     width: 20rem;
     height: 30rem;
     background-color: rgb(34, 33, 49);
