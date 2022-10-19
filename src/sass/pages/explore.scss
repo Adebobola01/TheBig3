@@ -8,15 +8,18 @@
     }
 
     &__sort {
-        background-color: white;
+        background-color: gray;
         position: sticky;
         min-width: 20rem;
         overflow-y: auto;
         max-height: 100vh;
+        color: white;
+        padding: 1.5rem;
+        font-size: 1.3rem;
 
-        p {
-            color: black;
-        }
+        // p {
+        //     color: black;
+        // }
     }
     &__main {
         // flex-grow: 3;

@@ -3,6 +3,10 @@ html {
   box-sizing: border-box;
 }
 
+::-webkit-scrollbar {
+  width: 0;
+}
+
 body {
   margin: 0;
   height: 100%;
@@ -27,7 +31,7 @@ body {
   background: rgba(0, 0, 0, 0.8);
   display: block;
   opacity: 0;
-  transform: translateX(-100vh);
+  transform: translateY(-100vh);
 }
 
 .open-wallets {
@@ -38,6 +42,19 @@ body {
 .open {
   opacity: 1 !important;
   transform: translateY(0) !important;
+}
+
+.scrollbar ::-webkit-scrollbar {
+  width: 15px;
+}
+.scrollbar ::-webkit-scrollbar-track {
+  background: rgb(150, 144, 144);
+}
+.scrollbar ::-webkit-scrollbar-thumb {
+  background: rgb(65, 62, 62);
+}
+.scrollbar ::-webkit-scrollbar-thumb:hover {
+  background: #7891d5;
 }
 
 @keyframes wallet {
@@ -59,6 +76,19 @@ body {
   100% {
     background-position: 100% 150%;
     transform: translateY(-3px);
+  }
+}
+@keyframes rotateNFT {
+  0% {
+    transform: rotateY(0);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+@keyframes stopRotate {
+  100% {
+    transform: rotateY(0deg);
   }
 }
 .connect__wallet--btn {
@@ -174,11 +204,18 @@ body {
   flex-direction: column;
   width: 26rem;
   height: 45rem;
-  background-color: rgb(138, 95, 95);
-  margin-top: 1rem;
+  background-color: rgb(34, 33, 49);
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+  margin-top: 4rem;
+  transition: transform 0.5s;
 }
 .explore__nft--container:not(:last-child) {
   margin-right: 1rem;
+}
+.explore__nft--container:hover {
+  transform: translateY(-0.8rem);
 }
 .explore__nft--image {
   flex-grow: 3;
@@ -216,6 +253,46 @@ body {
   margin: 1rem 0 0 0;
 }
 
+.nft-details__preview {
+  display: flex;
+  flex-direction: column;
+  width: 20rem;
+  height: 30rem;
+  background-color: rgb(34, 33, 49);
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+  margin-top: 2rem;
+  animation: rotateNFT 7s 0s infinite;
+  transition: all 5s;
+}
+.nft-details__preview:hover {
+  transform: rotateY(0deg);
+  animation: none;
+}
+
+.scroll-down {
+  background-color: rgb(56, 54, 75);
+  position: absolute;
+  height: 4rem;
+  width: 4rem;
+  border-radius: 50%;
+  text-align: center;
+  display: flex;
+  right: 1.1rem;
+  font: 1.4rem sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  transform: rotateZ(90deg) scale(1);
+}
+.scroll-down span {
+  margin: auto;
+  width: auto;
+}
+.scroll-down:hover {
+  transform: rotateZ(90deg) scale(1.2);
+}
+
 .nav-bar {
   display: flex;
   align-items: center;
@@ -223,17 +300,22 @@ body {
   color: #7891d5;
   background-color: black;
   font-size: 1.5rem;
-  padding: 1rem;
+  padding: 0 1rem;
+  height: 100%;
 }
 .nav-bar a {
   text-decoration: none;
+}
+
+.active {
+  border-bottom: 2px solid #db469f;
 }
 
 .header {
   position: fixed;
   z-index: 100;
   height: 7rem;
-  width: 100vw;
+  width: 100%;
 }
 
 .search {
@@ -277,6 +359,16 @@ body {
 .nav .btn__container {
   border-radius: 1.5rem;
   margin: 0;
+}
+.nav a {
+  height: 7rem;
+  vertical-align: middle;
+  padding-top: 10%;
+  transition: all 1s;
+}
+.nav a:hover {
+  border-bottom: 1px solid #db469f;
+  color: gray;
 }
 
 .nav {
@@ -419,6 +511,10 @@ body {
 .profile__nft-preview {
   width: 30%;
   background-color: rgb(30, 28, 46);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .profile__nft-preview--image {
   width: 100%;
@@ -481,14 +577,14 @@ body {
   margin-bottom: 4rem;
 }
 .explore__sort {
-  background-color: white;
+  background-color: gray;
   position: sticky;
   min-width: 20rem;
   overflow-y: auto;
   max-height: 100vh;
-}
-.explore__sort p {
-  color: black;
+  color: white;
+  padding: 1.5rem;
+  font-size: 1.3rem;
 }
 .explore__main {
   display: flex;

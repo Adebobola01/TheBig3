@@ -3,6 +3,10 @@ html {
     box-sizing: border-box;
 }
 
+::-webkit-scrollbar {
+    width: 0;
+}
+
 body {
     margin: 0;
     height: 100%;
@@ -29,7 +33,7 @@ body {
     background: rgba(0, 0, 0, 0.8);
     display: block;
     opacity: 0;
-    transform: translateX(-100vh);
+    transform: translateY(-100vh);
 }
 
 // .wallets {
@@ -43,4 +47,22 @@ body {
 .open {
     opacity: 1 !important;
     transform: translateY(0) !important;
+}
+
+.scrollbar {
+    ::-webkit-scrollbar {
+        width: 15px;
+
+        &-track {
+            background: rgb(150, 144, 144);
+        }
+
+        &-thumb {
+            background: rgb(65, 62, 62);
+
+            &:hover {
+                background: #7891d5;
+            }
+        }
+    }
 }

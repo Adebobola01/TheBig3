@@ -1,0 +1,24 @@
+.scroll-down {
+    background-color: rgb(56, 54, 75);
+    position: absolute;
+    height: 4rem;
+    width: 4rem;
+    border-radius: 50%;
+    text-align: center;
+    display: flex;
+    right: 1.1rem;
+    font: 1.4rem sans-serif;
+    font-weight: 700;
+    // font-size: 1.4rem;
+    cursor: pointer;
+    transform: rotateZ(90deg) scale(1);
+
+    span {
+        margin: auto;
+        width: auto;
+    }
+
+    &:hover {
+        transform: rotateZ(90deg) scale(1.2);
+    }
+}

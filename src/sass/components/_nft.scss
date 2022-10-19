@@ -4,12 +4,19 @@
         flex-direction: column;
         width: 26rem;
         height: 45rem;
-        background-color: rgb(138, 95, 95);
+        background-color: rgb(34, 33, 49);
+        cursor: pointer;
+        text-decoration: none;
+        color: white;
 
-        margin-top: 1rem;
+        margin-top: 4rem;
+        transition: transform 0.5s;
 
         &:not(:last-child) {
             margin-right: 1rem;
+        }
+        &:hover {
+            transform: translateY(-0.8rem);
         }
     }
 
@@ -53,5 +60,24 @@
         p {
             margin: 1rem 0 0 0;
         }
+    }
+}
+
+.nft-details__preview {
+    display: flex;
+    flex-direction: column;
+    width: 20rem;
+    height: 30rem;
+    background-color: rgb(34, 33, 49);
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+    margin-top: 2rem;
+    animation: rotateNFT 7s 0s infinite;
+    transition: all 5s;
+
+    &:hover {
+        transform: rotateY(0deg);
+        animation: none;
     }
 }
