@@ -307,10 +307,6 @@ body {
   text-decoration: none;
 }
 
-.active {
-  border-bottom: 2px solid #db469f;
-}
-
 .header {
   position: fixed;
   z-index: 100;
@@ -369,6 +365,12 @@ body {
 .nav a:hover {
   border-bottom: 1px solid #db469f;
   color: gray;
+}
+.nav a:active {
+  border-bottom: 1px solid #db469f;
+}
+.nav a:focus {
+  border-bottom: 1px solid #db469f;
 }
 
 .nav {

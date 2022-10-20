@@ -1,6 +1,9 @@
 import * as model from "./model.js";
 import walletView from "./views/walletView.js";
 import heroView from "./views/heroView.js";
+import profileView from "./views/profileView.js";
+import exploreView from "./views/exploreView.js";
+import detailsView from "./views/detailsView.js";
 
 const controlDisplayWallet = async function () {
     try {
@@ -43,10 +46,37 @@ const controlHero = async function () {
     }
 };
 
+const controlProfile = async function () {
+    try {
+        profileView.render();
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+const controlExplore = async function () {
+    try {
+        exploreView.render();
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+const controlDetailView = async function () {
+    try {
+        detailsView.render();
+    } catch (error) {
+        console.log(error);
+    }
+};
+
 const init = function () {
     walletView.WalletsHandler(controlDisplayWallet, controlConnectWallet);
     controlConnected();
     controlHero();
+    profileView.profileHandler(controlProfile);
+    exploreView.exploreHandler(controlExplore);
+    exploreView.detailViewHandler(controlDetailView);
 };
 
 init();
