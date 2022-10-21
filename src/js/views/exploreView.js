@@ -5,17 +5,13 @@ class exploreView extends View {
     exploreLink = document.querySelector(".explore-link");
     exploreHandler(handler) {
         this.exploreLink.addEventListener("click", handler);
-        handler();
     }
 
     detailViewHandler(handler) {
         this._parentElement.addEventListener("click", (e) => {
-            console.log(e.target.classList);
             if (e.target.closest(".explore__nft--container")) {
-                console.log("here");
                 handler();
             }
-            return;
         });
     }
 

@@ -29,13 +29,14 @@ class WalletView extends View {
         });
     }
 
-    dos;
-
-    displayAddress(address) {
-        this.btnContainer.style.background = "transparent";
-        this.btnContainer.innerHTML = `${address.slice(0, 3)}...${address.slice(
-            -4
-        )}`;
+    displayAddress(isConnected, address) {
+        if (address && isConnected) {
+            this.btnContainer.style.background = "transparent";
+            this.btnContainer.innerHTML = `${address.slice(
+                0,
+                3
+            )}...${address.slice(-4)}`;
+        }
     }
 }
 
