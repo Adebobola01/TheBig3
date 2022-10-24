@@ -9,16 +9,36 @@ html {
 
 body {
     margin: 0;
-    height: 100%;
-    background-color: rgb(22 21 34);
+    height: 100vh;
+    width: 100vw;
     color: white;
+    // align-items: center;
+    // justify-content: center;
+    background: linear-gradient(
+        to right,
+        rgba(175, 47, 124, 0.7),
+        rgba(120, 145, 213, 0.6)
+    );
+    background: linear;
     // padding-top: 7rem;
 }
 
-.main {
-    // margin-top: 7rem;
-    padding-top: 7rem;
+.app {
+    // min-width: 170rem;
+    // min-height: 65rem;
+    // // height: 75rem;
+    // // max-width: 250rem;
+    // margin: auto;
+    width: 100%;
+    height: 100%;
     position: relative;
+}
+
+.main {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(22 21 34);
 }
 
 .hidden {
@@ -26,14 +46,16 @@ body {
 }
 
 .backdrop {
-    height: 100vh;
-    width: 100vw;
-    position: fixed;
+    // height: 65rem;
+    // width: 170rem;
+    width: 100%;
+    height: 100%;
+    position: absolute;
     z-index: 100;
     background: rgba(0, 0, 0, 0.8);
     display: block;
     opacity: 0;
-    transform: translateY(-100vh);
+    transform: translateY(-200vh);
 }
 
 // .wallets {

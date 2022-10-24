@@ -9,14 +9,24 @@ html {
 
 body {
   margin: 0;
-  height: 100%;
-  background-color: rgb(22, 21, 34);
+  height: 100vh;
+  width: 100vw;
   color: white;
+  background: linear-gradient(to right, rgba(175, 47, 124, 0.7), rgba(120, 145, 213, 0.6));
+  background: linear;
+}
+
+.app {
+  width: 100%;
+  height: 100%;
+  position: relative;
 }
 
 .main {
-  padding-top: 7rem;
   position: relative;
+  height: 100%;
+  width: 100%;
+  background-color: rgb(22, 21, 34);
 }
 
 .hidden {
@@ -24,14 +34,14 @@ body {
 }
 
 .backdrop {
-  height: 100vh;
-  width: 100vw;
-  position: fixed;
+  width: 100%;
+  height: 100%;
+  position: absolute;
   z-index: 100;
   background: rgba(0, 0, 0, 0.8);
   display: block;
   opacity: 0;
-  transform: translateY(-100vh);
+  transform: translateY(-200vh);
 }
 
 .open-wallets {
@@ -308,7 +318,6 @@ body {
 }
 
 .header {
-  position: fixed;
   z-index: 100;
   height: 7rem;
   width: 100%;
@@ -359,7 +368,6 @@ body {
 .nav a {
   height: 7rem;
   vertical-align: middle;
-  padding-top: 10%;
   transition: all 1s;
 }
 .nav a:hover {
@@ -383,6 +391,8 @@ body {
 .nav__link {
   text-decoration: none;
   color: #7891d5;
+  display: flex;
+  align-items: center;
 }
 .nav__link:hover {
   color: rgb(133, 133, 133);
@@ -391,10 +401,13 @@ body {
 .section-hero {
   padding: 7rem 10rem 5rem;
   font-size: 2rem;
+  display: flex;
+  align-items: center;
   background-image: linear-gradient(rgba(16, 29, 44, 0.9), rgba(16, 29, 44, 0.9)), url("../images/background-Image.jpg");
   background-size: cover;
   background-position: top;
   position: relative;
+  height: 100%;
 }
 
 .row {
@@ -509,10 +522,11 @@ body {
 .profile {
   display: flex;
   min-height: 50rem;
+  height: 100vh;
 }
 .profile__nft-preview {
   background-color: rgb(30, 28, 46);
-  padding: 0 2rem 6rem;
+  padding: 0 1rem 6rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -525,6 +539,7 @@ body {
   width: 100%;
   display: flex;
   flex-direction: column;
+  overflow-y: scroll;
 }
 .profile__user--header {
   display: flex;
@@ -549,9 +564,11 @@ body {
 }
 .profile__user--body {
   flex-grow: 1;
-  padding: 3rem;
+  padding: 3rem 3rem;
   height: 100%;
   display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
   align-items: center;
 }
 .profile-content {
@@ -570,12 +587,47 @@ body {
   text-align: center;
   width: 100%;
 }
+.profile__nft-container {
+  height: 30rem;
+  width: 22rem;
+  display: flex;
+  flex-direction: column;
+}
+.profile__nft-container:not(:last-child) {
+  margin-right: 2rem;
+}
+.profile__nft-image {
+  height: 70%;
+  width: 100%;
+}
+.profile__nft-image img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px 10px 0 0;
+}
+.profile__nft-details {
+  display: flex;
+  padding: 0.5rem 1rem;
+  background-color: rgb(63, 62, 77);
+  font-size: 2rem;
+}
+.profile__nft-description {
+  display: flex;
+  flex-direction: column;
+}
+.profile__nft-description h3 {
+  margin: 0;
+}
+.profile__nft-description span {
+  font-size: 1.2rem;
+}
 
 .explore__container {
   display: flex;
   overflow: hidden;
-  height: 100vh;
+  height: 100%;
   margin-bottom: 4rem;
+  background-color: rgb(22, 21, 34);
 }
 .explore__sort {
   background-color: gray;

@@ -1,9 +1,14 @@
 const web3 = new Web3(Web3.givenProvider);
+import * as utils from "./helpers.js";
 
 export const state = {
     message: "",
     signature: "",
     isConnected: false,
+    user: {
+        address: "",
+        nfts: [],
+    },
 };
 const remainingMilliseconds = 180 * 60 * 1000;
 
@@ -14,9 +19,10 @@ const logoutHandler = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("expiryDate");
     localStorage.removeItem("userId");
+    localStorage.removeItem("address");
 };
 
-const setAutoLogout = (milliseconds) => {
+export const setAutoLogout = (milliseconds) => {
     setTimeout(() => {
         logoutHandler();
     }, milliseconds);
@@ -76,7 +82,7 @@ export const verifyMessage = async () => {
             if (result.status === 200 || res2.status === 201) {
                 state.isConnected = true;
                 const verified = await result.json();
-                state.address = verified.address;
+                state.user.address = verified.address;
                 console.log(verified);
                 setToStorage(verified.token, verified.userId, verified.address);
                 setAutoLogout(remainingMilliseconds);
@@ -102,4 +108,24 @@ export const getHeroData = async () => {
     } catch (error) {
         console.log(error);
     }
+};
+
+export const getUserData = async () => {
+    const result = await fetch("http://localhost:3000/profile", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            userAddress: state.user.address,
+        }),
+    });
+    const { data } = await result.json();
+    data.forEach((n) => {
+        if (!n.metadata) {
+            return;
+        }
+        n.metadata.image = utils.getImage(n.metadata.image);
+    });
+    state.user.nfts = data;
 };

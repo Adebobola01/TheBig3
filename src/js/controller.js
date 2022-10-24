@@ -4,10 +4,17 @@ import heroView from "./views/heroView.js";
 import profileView from "./views/profileView.js";
 import exploreView from "./views/exploreView.js";
 import detailsView from "./views/detailsView.js";
+import * as utils from "./helpers.js";
 
 const token = localStorage.getItem("token");
 const expiryDate = localStorage.getItem("expiryDate");
 const address = localStorage.getItem("address");
+
+///initial state
+
+// if (module.hot) {
+//     module.hot.accept();
+// }
 
 const controlInitialState = async () => {
     ethereum.on("chainChanged", (chainId) => {
@@ -16,7 +23,6 @@ const controlInitialState = async () => {
         }
         console.log("please connect to the Goerli network!");
     });
-    console.log(token);
     const stillValid = () => {
         if (new Date(expiryDate) > new Date()) {
             return true;
@@ -27,12 +33,16 @@ const controlInitialState = async () => {
 
     if (token && stillValid) {
         model.state.isConnected = true;
-        model.state.address = address;
-        walletView.displayAddress(model.state.isConnected, model.state.address);
+        model.state.user.address = address;
+        walletView.displayAddress(
+            model.state.isConnected,
+            model.state.user.address
+        );
     }
+    model.setAutoLogout(new Date(expiryDate) - new Date());
 };
 
-const controlDisplayWallet = async function () {
+const controlDisplayWallet = function () {
     try {
         walletView.toggle();
     } catch (error) {
@@ -64,8 +74,7 @@ const controlConnected = async function () {
 const controlHero = async function () {
     try {
         const data = await model.getHeroData();
-        const link = data.image.split("//")[1];
-        data.image = `https://ipfs.moralis.io:2053/ipfs/${link}`;
+        data.image = utils.getImage(data.image);
         heroView.render(data);
     } catch (error) {
         console.log(error);
@@ -74,7 +83,11 @@ const controlHero = async function () {
 
 const controlProfile = async function () {
     try {
-        profileView.render();
+        if (!model.state.isConnected) {
+            return console.log("you must connect firs!");
+        }
+        await model.getUserData();
+        profileView.render(model.state.user.nfts);
     } catch (error) {
         console.log(error);
     }
