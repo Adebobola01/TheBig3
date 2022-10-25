@@ -54,7 +54,10 @@ const controlConnectWallet = async function () {
     try {
         await model.getUserAccount();
         await model.verifyMessage();
-        walletView.displayAddress(model.state.isConnected, model.state.address);
+        walletView.displayAddress(
+            model.state.isConnected,
+            model.state.user.address
+        );
         walletView.toggle();
     } catch (error) {
         console.log(error);
@@ -109,9 +112,19 @@ const controlDetailView = async function () {
     }
 };
 
+const controlLogout = async () => {
+    try {
+        model.logoutHandler();
+        walletView.displayConnectBtn();
+    } catch (error) {
+        console.log(error);
+    }
+};
+
 const init = function () {
     controlInitialState();
     walletView.WalletsHandler(controlDisplayWallet, controlConnectWallet);
+    walletView.logoutHandler(controlLogout);
     controlConnected();
     controlHero();
     exploreView.exploreHandler(controlExplore);

@@ -14,7 +14,7 @@ const remainingMilliseconds = 180 * 60 * 1000;
 
 export const loadNft = async (id) => {};
 
-const logoutHandler = () => {
+export const logoutHandler = () => {
     state.isConnected = false;
     localStorage.removeItem("token");
     localStorage.removeItem("expiryDate");

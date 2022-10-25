@@ -162,6 +162,24 @@ body {
   animation: gradient 1.5s forwards;
 }
 
+.connected {
+  background: transparent;
+}
+
+.logout-btn {
+  height: 2rem;
+  width: 4rem;
+  background-color: transparent;
+  border: 2px solid #db469f;
+  color: #db469f;
+  cursor: pointer;
+  font-weight: 700;
+}
+.logout-btn:hover {
+  background-color: #db469f;
+  color: black;
+}
+
 .wallet__container {
   position: absolute;
   left: 50%;
