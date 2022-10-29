@@ -1,4 +1,6 @@
 import View from "./View.js";
+import uzuImageurl from "../../../static/images/uzumakiFamily.png";
+import itachiUrl from "../../../static/images/itachi.png";
 
 class exploreView extends View {
     _parentElement = document.querySelector(".main");
@@ -54,7 +56,7 @@ class exploreView extends View {
                 href="#"
             >
                 <img
-                    src="./src/images/uzumakiFamily.png"
+                    src="${uzuImageurl}"
                     alt="nft"
                     class="explore__nft--image"
                 />
@@ -62,7 +64,7 @@ class exploreView extends View {
                     <p class="explore__nft--name">Azuki #25</p>
                     <div class="explore__nft--owner">
                         <img
-                            src="./src/images/itachi.png"
+                            src="${itachiUrl}"
                             alt="nft__owner"
                             class="explore__nft--owner-image"
                         />
@@ -80,7 +82,7 @@ class exploreView extends View {
                 href="#"
             >
                 <img
-                    src="./src/images/uzumakiFamily.png"
+                    src="${uzuImageurl}"
                     alt="nft"
                     class="explore__nft--image"
                 />
@@ -88,7 +90,7 @@ class exploreView extends View {
                     <p class="explore__nft--name">Azuki #25</p>
                     <div class="explore__nft--owner">
                         <img
-                            src="./src/images/itachi.png"
+                            src="${itachiUrl}"
                             alt="nft__owner"
                             class="explore__nft--owner-image"
                         />
@@ -106,7 +108,7 @@ class exploreView extends View {
                 href="#"
             >
                 <img
-                    src="./src/images/uzumakiFamily.png"
+                    src="${uzuImageurl}"
                     alt="nft"
                     class="explore__nft--image"
                 />
@@ -114,7 +116,7 @@ class exploreView extends View {
                     <p class="explore__nft--name">Azuki #25</p>
                     <div class="explore__nft--owner">
                         <img
-                            src="./src/images/itachi.png"
+                            src="${itachiUrl}"
                             alt="nft__owner"
                             class="explore__nft--owner-image"
                         />
@@ -132,7 +134,7 @@ class exploreView extends View {
                 href="#"
             >
                 <img
-                    src="./src/images/uzumakiFamily.png"
+                    src="${uzuImageurl}"
                     alt="nft"
                     class="explore__nft--image"
                 />
@@ -140,7 +142,7 @@ class exploreView extends View {
                     <p class="explore__nft--name">Azuki #25</p>
                     <div class="explore__nft--owner">
                         <img
-                            src="./src/images/itachi.png"
+                            src="${itachiUrl}"
                             alt="nft__owner"
                             class="explore__nft--owner-image"
                         />
@@ -158,7 +160,7 @@ class exploreView extends View {
                 href="#"
             >
                 <img
-                    src="./src/images/uzumakiFamily.png"
+                    src="${uzuImageurl}"
                     alt="nft"
                     class="explore__nft--image"
                 />
@@ -166,7 +168,7 @@ class exploreView extends View {
                     <p class="explore__nft--name">Azuki #25</p>
                     <div class="explore__nft--owner">
                         <img
-                            src="./src/images/itachi.png"
+                            src="${itachiUrl}"
                             alt="nft__owner"
                             class="explore__nft--owner-image"
                         />
@@ -184,7 +186,7 @@ class exploreView extends View {
                 href="#"
             >
                 <img
-                    src="./src/images/uzumakiFamily.png"
+                    src="${uzuImageurl}"
                     alt="nft"
                     class="explore__nft--image"
                 />
@@ -192,7 +194,7 @@ class exploreView extends View {
                     <p class="explore__nft--name">Azuki #25</p>
                     <div class="explore__nft--owner">
                         <img
-                            src="./src/images/itachi.png"
+                            src="${itachiUrl}"
                             alt="nft__owner"
                             class="explore__nft--owner-image"
                         />
@@ -210,7 +212,7 @@ class exploreView extends View {
                 href="#"
             >
                 <img
-                    src="./src/images/uzumakiFamily.png"
+                    src="${uzuImageurl}"
                     alt="nft"
                     class="explore__nft--image"
                 />
@@ -218,7 +220,7 @@ class exploreView extends View {
                     <p class="explore__nft--name">Azuki #25</p>
                     <div class="explore__nft--owner">
                         <img
-                            src="./src/images/itachi.png"
+                            src="${itachiUrl}"
                             alt="nft__owner"
                             class="explore__nft--owner-image"
                         />
@@ -236,7 +238,7 @@ class exploreView extends View {
                 href="#"
             >
                 <img
-                    src="./src/images/uzumakiFamily.png"
+                    src="${uzuImageurl}"
                     alt="nft"
                     class="explore__nft--image"
                 />
@@ -244,7 +246,7 @@ class exploreView extends View {
                     <p class="explore__nft--name">Azuki #25</p>
                     <div class="explore__nft--owner">
                         <img
-                            src="./src/images/itachi.png"
+                            src="${itachiUrl}"
                             alt="nft__owner"
                             class="explore__nft--owner-image"
                         />
@@ -262,7 +264,7 @@ class exploreView extends View {
                 href="#"
             >
                 <img
-                    src="./src/images/uzumakiFamily.png"
+                    src="${uzuImageurl}"
                     alt="nft"
                     class="explore__nft--image"
                 />
@@ -270,7 +272,7 @@ class exploreView extends View {
                     <p class="explore__nft--name">Azuki #25</p>
                     <div class="explore__nft--owner">
                         <img
-                            src="./src/images/itachi.png"
+                            src="${itachiUrl}"
                             alt="nft__owner"
                             class="explore__nft--owner-image"
                         />
@@ -288,7 +290,7 @@ class exploreView extends View {
                 href="#"
             >
                 <img
-                    src="./src/images/uzumakiFamily.png"
+                    src="${uzuImageurl}"
                     alt="nft"
                     class="explore__nft--image"
                 />
@@ -296,7 +298,7 @@ class exploreView extends View {
                     <p class="explore__nft--name">Azuki #25</p>
                     <div class="explore__nft--owner">
                         <img
-                            src="./src/images/itachi.png"
+                            src="${itachiUrl}"
                             alt="nft__owner"
                             class="explore__nft--owner-image"
                         />
@@ -314,7 +316,7 @@ class exploreView extends View {
                 href="#"
             >
                 <img
-                    src="./src/images/uzumakiFamily.png"
+                    src="${uzuImageurl}"
                     alt="nft"
                     class="explore__nft--image"
                 />
@@ -322,7 +324,7 @@ class exploreView extends View {
                     <p class="explore__nft--name">Azuki #25</p>
                     <div class="explore__nft--owner">
                         <img
-                            src="./src/images/itachi.png"
+                            src="${itachiUrl}"
                             alt="nft__owner"
                             class="explore__nft--owner-image"
                         />
@@ -340,7 +342,7 @@ class exploreView extends View {
                 href="#"
             >
                 <img
-                    src="./src/images/uzumakiFamily.png"
+                    src="${uzuImageurl}"
                     alt="nft"
                     class="explore__nft--image"
                 />
@@ -348,7 +350,7 @@ class exploreView extends View {
                     <p class="explore__nft--name">Azuki #25</p>
                     <div class="explore__nft--owner">
                         <img
-                            src="./src/images/itachi.png"
+                            src="${itachiUrl}"
                             alt="nft__owner"
                             class="explore__nft--owner-image"
                         />
@@ -366,7 +368,7 @@ class exploreView extends View {
                 href="#"
             >
                 <img
-                    src="./src/images/uzumakiFamily.png"
+                    src="${uzuImageurl}"
                     alt="nft"
                     class="explore__nft--image"
                 />
@@ -374,111 +376,7 @@ class exploreView extends View {
                     <p class="explore__nft--name">Azuki #25</p>
                     <div class="explore__nft--owner">
                         <img
-                            src="./src/images/itachi.png"
-                            alt="nft__owner"
-                            class="explore__nft--owner-image"
-                        />
-                        <p class="explore__nft--owner-name">
-                            Adebobola
-                        </p>
-                    </div>
-                    <div class="explore__nft--price">
-                        <p>23 ETH</p>
-                    </div>
-                </div>
-            </a>
-            <a
-                class="explore__nft--container"
-                href="#"
-            >
-                <img
-                    src="./src/images/uzumakiFamily.png"
-                    alt="nft"
-                    class="explore__nft--image"
-                />
-                <div class="explore__nft--details">
-                    <p class="explore__nft--name">Azuki #25</p>
-                    <div class="explore__nft--owner">
-                        <img
-                            src="./src/images/itachi.png"
-                            alt="nft__owner"
-                            class="explore__nft--owner-image"
-                        />
-                        <p class="explore__nft--owner-name">
-                            Adebobola
-                        </p>
-                    </div>
-                    <div class="explore__nft--price">
-                        <p>23 ETH</p>
-                    </div>
-                </div>
-            </a>
-            <a
-                class="explore__nft--container"
-                href="#"
-            >
-                <img
-                    src="./src/images/uzumakiFamily.png"
-                    alt="nft"
-                    class="explore__nft--image"
-                />
-                <div class="explore__nft--details">
-                    <p class="explore__nft--name">Azuki #25</p>
-                    <div class="explore__nft--owner">
-                        <img
-                            src="./src/images/itachi.png"
-                            alt="nft__owner"
-                            class="explore__nft--owner-image"
-                        />
-                        <p class="explore__nft--owner-name">
-                            Adebobola
-                        </p>
-                    </div>
-                    <div class="explore__nft--price">
-                        <p>23 ETH</p>
-                    </div>
-                </div>
-            </a>
-            <a
-                class="explore__nft--container"
-                href="#"
-            >
-                <img
-                    src="./src/images/uzumakiFamily.png"
-                    alt="nft"
-                    class="explore__nft--image"
-                />
-                <div class="explore__nft--details">
-                    <p class="explore__nft--name">Azuki #25</p>
-                    <div class="explore__nft--owner">
-                        <img
-                            src="./src/images/itachi.png"
-                            alt="nft__owner"
-                            class="explore__nft--owner-image"
-                        />
-                        <p class="explore__nft--owner-name">
-                            Adebobola
-                        </p>
-                    </div>
-                    <div class="explore__nft--price">
-                        <p>23 ETH</p>
-                    </div>
-                </div>
-            </a>
-            <a
-                class="explore__nft--container"
-                href="#"
-            >
-                <img
-                    src="./src/images/uzumakiFamily.png"
-                    alt="nft"
-                    class="explore__nft--image"
-                />
-                <div class="explore__nft--details">
-                    <p class="explore__nft--name">Azuki #25</p>
-                    <div class="explore__nft--owner">
-                        <img
-                            src="./src/images/itachi.png"
+                            src="${itachiUrl}"
                             alt="nft__owner"
                             class="explore__nft--owner-image"
                         />

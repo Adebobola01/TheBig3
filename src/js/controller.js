@@ -12,9 +12,9 @@ const address = localStorage.getItem("address");
 
 ///initial state
 
-// if (module.hot) {
-//     module.hot.accept();
-// }
+if (module.hot) {
+    module.hot.accept();
+}
 
 const controlInitialState = async () => {
     ethereum.on("chainChanged", (chainId) => {

@@ -115,3 +115,13 @@
         }
     }
 }
+.list {
+    &__container {
+        height: 100%;
+        width: 25rem;
+        position: absolute;
+        right: 0;
+        z-index: 5;
+        background-color: aqua;
+    }
+}

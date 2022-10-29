@@ -1,4 +1,7 @@
 import View from "./View.js";
+import uzuImageurl from "../../../static/images/uzumakiFamily.png";
+import itachiUrl from "../../../static/images/itachi.png";
+import madaraUrl from "../../../static/images/madara.png";
 
 class detailsView extends View {
     _parentElement = document.querySelector(".main");
@@ -9,7 +12,7 @@ class detailsView extends View {
         <section class="profile__nft-preview">
             <div class="nft__details--preview">
                 <img
-                    src="./src/images/uzumakiFamily.png"
+                    src="${uzuImageurl}"
                     alt="nft"
                     class="explore__nft--image"
                 />

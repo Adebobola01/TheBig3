@@ -1,4 +1,7 @@
 import View from "./View.js";
+import uzuImageurl from "../../../static/images/uzumakiFamily.png";
+import itachiUrl from "../../../static/images/itachi.png";
+import madaraUrl from "../../../static/images/madara.png";
 
 class heroView extends View {
     _parentElement = document.querySelector(".hero__nft-container");
@@ -13,8 +16,7 @@ class heroView extends View {
             </div>
             <div class="hero__nft-details">
                 <img
-                    src="./src/images/itachi.png"
-                    alt="creator icon"
+                    src="${itachiUrl}"
                 />
                 <div class="hero__nft-description">
                     <h3>${this._data.name}</h2>
