@@ -630,6 +630,10 @@ const controlLogout = async ()=>{
         console.log(error);
     }
 };
+const controlList = ()=>{
+    console.log("Listing");
+    (0, _profileViewJsDefault.default).openListContainer();
+};
 const init = function() {
     controlInitialState();
     (0, _walletViewJsDefault.default).WalletsHandler(controlDisplayWallet, controlConnectWallet);
@@ -639,6 +643,7 @@ const init = function() {
     (0, _exploreViewJsDefault.default).exploreHandler(controlExplore);
     (0, _exploreViewJsDefault.default).detailViewHandler(controlDetailView);
     (0, _profileViewJsDefault.default).profileHandler(controlProfile);
+    (0, _profileViewJsDefault.default).listHandler(controlList);
 };
 init();
 
@@ -974,16 +979,27 @@ class profileView extends (0, _viewJsDefault.default) {
     _parentElement = document.querySelector(".main");
     profileLink = document.querySelector(".profile-link");
     contentBody = document.querySelector(".profile__user--body");
-    profileBody = document.querySelector(".profile__user--body");
+    container = document.querySelector(".profile__user");
+    listContainer = document.querySelector(".list__container");
+    // profileBody = document.querySelector(".profile__user--body");
     content = "";
     profileHandler(handler) {
         this.profileLink.classList.add("active");
         this.profileLink.addEventListener("click", handler);
     }
+    openListContainer() {
+        document.querySelector(".list__container").classList.toggle("open-list");
+    }
     listHandler(handler) {
-        this.profileBody.addEventListener("click", (e)=>{
+        // this._parentElement.addEventListener("click", handler);
+        this._parentElement.addEventListener("click", (e)=>{
             e.preventDefault();
-            if (e.target.closest(".list")) handler();
+            const nft = e.target.closest(".profile__nft-container");
+            if (!nft) {
+                console.log("not");
+                return;
+            }
+            handler();
         });
     }
     _generateMarkup() {
@@ -991,70 +1007,70 @@ class profileView extends (0, _viewJsDefault.default) {
                 <div class="profile-content">
                     <span> No Content Available </span>
                 </div>
-            `;
+                `;
         else {
             console.log(this._data);
             this._data.forEach((n)=>{
                 if (n.metadata) return this.content = this.content + `
                         <div class="profile__nft-container">
                             <div class="profile__nft-image">
-                                <img
+                            <img
                                     src="${n.metadata.image}"
                                     alt="profile image"
                                 />
-                            </div>
-                            <div class="profile__nft-details">
+                                </div>
+                                <div class="profile__nft-details">
                                 <div class="profile__nft-description">
                                     <span>${n.name} collection</span>
                                     <h3>${n.metadata.name}</h2>
+                                    </div>
                                 </div>
-                            </div>
                         </div>    
-                    `;
+                        `;
             });
         }
         return `
         <div class="profile">
             <div class="list__container">
-                
+                <button class="logout-btn">List</button>
             </div>
             <section class="profile__nft-preview">
-                <div class="nft__details--preview">
-                    <img
-                        src="${this._data[0].metadata.image}"
-                        alt="nft"
-                        class="explore__nft--image"
+            <div class="nft__details--preview">
+            <img
+            src="${this._data[0].metadata.image}"
+            alt="nft"
+            class="explore__nft--image"
                     />
                     <div class="explore__nft--details">
-                        <p class="explore__nft--name">${this._data[0].metadata.name}</p>
+                    <p class="explore__nft--name">${this._data[0].metadata.name}</p>
                         <div class="explore__nft--price">
-                            <p>23 ETH</p>
+                        <p>23 ETH</p>
                         </div>
-                    </div>
-                </div>
-            </section>
-            <section class="profile__user">
-                <div class="profile__user--header">
-                    <img
+                        </div>
+                        </div>
+                        </section>
+                        <section class="profile__user">
+                        <div class="profile__user--header">
+                        <img
                         src="${0, _madaraPngDefault.default}"
                         alt="user-avi"
                         class="profile__user--image"
-                    />
-                    <div class="profile__user--details">
+                        />
+                        <div class="profile__user--details">
                         <p class="profile__user--title">
                             Adebobola Oyedunmade
-                        </p>
+                            </p>
                         <span class="profile__user--address"
-                            >0x000...000</span
+                        >0x000...000</span
                         >
-                    </div>
-                </div>
-                <div class="profile__user--body">
+                        </div>
+                        </div>
+                        <div class="profile__user--body">
                     ${this.content}
-                </div>
+                    </div>
             </section>
-        </div>
-        `;
+            </div>
+            `;
     }
 }
 exports.default = new profileView();

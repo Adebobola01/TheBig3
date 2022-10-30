@@ -13,6 +13,7 @@ body {
   background: linear-gradient(to right, #af2f7cb3, #7891d599);
   background: linear;
   margin: 0;
+  overflow: hidden;
 }
 
 .app {
@@ -25,7 +26,6 @@ body {
   height: 100%;
   width: 100%;
   background-color: #161522;
-  position: relative;
 }
 
 .hidden {
@@ -662,8 +662,14 @@ body {
 .profile__nft-container {
   height: 30rem;
   width: 22rem;
+  cursor: pointer;
   flex-direction: column;
+  transition: transform 1s;
   display: flex;
+}
+
+.profile__nft-container:hover {
+  transform: translateY(-.7rem);
 }
 
 .profile__nft-container:not(:last-child) {
@@ -705,8 +711,15 @@ body {
   height: 100%;
   width: 25rem;
   z-index: 5;
+  opacity: 0;
   background-color: #0ff;
+  transition: all 1s;
   position: absolute;
+  right: -30rem;
+}
+
+.open-list {
+  opacity: 1;
   right: 0;
 }
 

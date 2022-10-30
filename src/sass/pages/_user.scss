@@ -2,6 +2,7 @@
     display: flex;
     min-height: 50rem;
     height: 100vh;
+    // position: relative;
     &__nft-preview {
         background-color: rgb(30, 28, 46);
         padding: 0 1rem 6rem;
@@ -78,6 +79,13 @@
             width: 22rem;
             display: flex;
             flex-direction: column;
+            transition: transform 1s;
+
+            cursor: pointer;
+
+            &:hover {
+                transform: translateY(-0.7rem);
+            }
 
             &:not(:last-child) {
                 margin-right: 2rem;
@@ -120,8 +128,18 @@
         height: 100%;
         width: 25rem;
         position: absolute;
-        right: 0;
+        right: -30rem;
+        // right: 0;
+        // left: 0;
         z-index: 5;
         background-color: aqua;
+        opacity: 0;
+        // transform: translateX(30rem);
+        transition: all 1s;
     }
+}
+
+.open-list {
+    opacity: 1;
+    right: 0;
 }

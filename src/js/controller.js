@@ -121,6 +121,11 @@ const controlLogout = async () => {
     }
 };
 
+const controlList = () => {
+    console.log("Listing");
+    profileView.openListContainer();
+};
+
 const init = function () {
     controlInitialState();
     walletView.WalletsHandler(controlDisplayWallet, controlConnectWallet);
@@ -130,6 +135,7 @@ const init = function () {
     exploreView.exploreHandler(controlExplore);
     exploreView.detailViewHandler(controlDetailView);
     profileView.profileHandler(controlProfile);
+    profileView.listHandler(controlList);
 };
 
 init();
