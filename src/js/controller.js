@@ -116,13 +116,23 @@ const controlLogout = async () => {
     try {
         model.logoutHandler();
         walletView.displayConnectBtn();
+        window.location.reload();
     } catch (error) {
         console.log(error);
     }
 };
 
-const controlList = () => {
-    console.log("Listing");
+const controlShowList = () => {
+    profileView.openListContainer();
+};
+const controlCloseList = () => {
+    profileView.openListContainer();
+};
+
+const controlList = async () => {
+    console.log(model.state);
+    const listValues = profileView.getListingDetails();
+    await model.list(listValues);
     profileView.openListContainer();
 };
 
@@ -135,7 +145,9 @@ const init = function () {
     exploreView.exploreHandler(controlExplore);
     exploreView.detailViewHandler(controlDetailView);
     profileView.profileHandler(controlProfile);
-    profileView.listHandler(controlList);
+    profileView.showListHandler(controlShowList);
+    profileView.listNFT(controlList);
+    profileView.closeListHandler(controlCloseList);
 };
 
 init();

@@ -626,12 +626,21 @@ const controlLogout = async ()=>{
     try {
         _modelJs.logoutHandler();
         (0, _walletViewJsDefault.default).displayConnectBtn();
+        window.location.reload();
     } catch (error) {
         console.log(error);
     }
 };
-const controlList = ()=>{
-    console.log("Listing");
+const controlShowList = ()=>{
+    (0, _profileViewJsDefault.default).openListContainer();
+};
+const controlCloseList = ()=>{
+    (0, _profileViewJsDefault.default).openListContainer();
+};
+const controlList = async ()=>{
+    console.log(_modelJs.state);
+    const listValues = (0, _profileViewJsDefault.default).getListingDetails();
+    await _modelJs.list(listValues);
     (0, _profileViewJsDefault.default).openListContainer();
 };
 const init = function() {
@@ -643,7 +652,9 @@ const init = function() {
     (0, _exploreViewJsDefault.default).exploreHandler(controlExplore);
     (0, _exploreViewJsDefault.default).detailViewHandler(controlDetailView);
     (0, _profileViewJsDefault.default).profileHandler(controlProfile);
-    (0, _profileViewJsDefault.default).listHandler(controlList);
+    (0, _profileViewJsDefault.default).showListHandler(controlShowList);
+    (0, _profileViewJsDefault.default).listNFT(controlList);
+    (0, _profileViewJsDefault.default).closeListHandler(controlCloseList);
 };
 init();
 
@@ -658,6 +669,7 @@ parcelHelpers.export(exports, "getUserAccount", ()=>getUserAccount);
 parcelHelpers.export(exports, "verifyMessage", ()=>verifyMessage);
 parcelHelpers.export(exports, "getHeroData", ()=>getHeroData);
 parcelHelpers.export(exports, "getUserData", ()=>getUserData);
+parcelHelpers.export(exports, "list", ()=>list);
 var _helpersJs = require("./helpers.js");
 const web3 = new Web3(Web3.givenProvider);
 const state = {
@@ -677,6 +689,9 @@ const logoutHandler = ()=>{
     localStorage.removeItem("expiryDate");
     localStorage.removeItem("userId");
     localStorage.removeItem("address");
+};
+const getToken = ()=>{
+    return localStorage.getItem("token");
 };
 const setAutoLogout = (milliseconds)=>{
     setTimeout(()=>{
@@ -761,6 +776,7 @@ const getUserData = async ()=>{
     const result = await fetch("http://localhost:3000/profile", {
         method: "POST",
         headers: {
+            Authorization: "Bearer " + getToken(),
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
@@ -773,6 +789,25 @@ const getUserData = async ()=>{
         n.metadata.image = _helpersJs.getImage(n.metadata.image);
     });
     state.user.nfts = data;
+};
+const list = async (values)=>{
+    const list = await fetch("http://localhost:3000/list", {
+        method: "POST",
+        headers: {
+            Authorization: "Bearer " + getToken(),
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            contractAddr: values.contractAddress,
+            imageUrl: values.imageUrl,
+            collection: values.collection,
+            name: values.name,
+            price: values.price,
+            durationValue: values.durationValue,
+            durationUnit: values.durationUnit
+        })
+    });
+    console.log(await list.json());
 };
 
 },{"./helpers.js":"hGI1E","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hGI1E":[function(require,module,exports) {
@@ -975,30 +1010,72 @@ var _itachiPng = require("../../../static/images/itachi.png");
 var _itachiPngDefault = parcelHelpers.interopDefault(_itachiPng);
 var _madaraPng = require("../../../static/images/madara.png");
 var _madaraPngDefault = parcelHelpers.interopDefault(_madaraPng);
+var _ethereumEthLogoSvg = require("../../../static/images/ethereum-eth-logo.svg");
+var _ethereumEthLogoSvgDefault = parcelHelpers.interopDefault(_ethereumEthLogoSvg);
 class profileView extends (0, _viewJsDefault.default) {
     _parentElement = document.querySelector(".main");
     profileLink = document.querySelector(".profile-link");
     contentBody = document.querySelector(".profile__user--body");
     container = document.querySelector(".profile__user");
     listContainer = document.querySelector(".list__container");
+    backdrop = document.querySelector("backdrop");
     // profileBody = document.querySelector(".profile__user--body");
     content = "";
+    collectionName;
+    imageUrl;
+    name;
+    contractAddress;
     profileHandler(handler) {
         this.profileLink.classList.add("active");
         this.profileLink.addEventListener("click", handler);
     }
+    getListingDetails() {
+        const price = document.querySelector(".list__price--input").value;
+        const durationValue = document.querySelector(".list__duration--input").value;
+        const durationUnit = document.querySelector(".list__duration--select").value;
+        return {
+            price: price,
+            collection: this.collectionName,
+            imageUrl: this.imageUrl,
+            contractAddress: this.contractAddress,
+            durationValue: durationValue,
+            durationUnit: durationUnit,
+            name: this.name
+        };
+    }
+    listNFT(handler) {
+        this._parentElement.addEventListener("click", (e)=>{
+            if (!e.target.closest(".list-btn")) return;
+            handler();
+        });
+    }
+    closeListHandler(handler) {
+        this._parentElement.addEventListener("click", (e)=>{
+            e.preventDefault();
+            if (!e.target.closest(".list-close")) return;
+            handler();
+        });
+    }
     openListContainer() {
         document.querySelector(".list__container").classList.toggle("open-list");
     }
-    listHandler(handler) {
-        // this._parentElement.addEventListener("click", handler);
+    showListHandler(handler) {
         this._parentElement.addEventListener("click", (e)=>{
             e.preventDefault();
+            if (!e.target.closest(".list-cta")) return;
             const nft = e.target.closest(".profile__nft-container");
-            if (!nft) {
-                console.log("not");
-                return;
-            }
+            this.name = nft.dataset.name;
+            this.imageUrl = nft.dataset.image;
+            this.contractAddress = nft.dataset.contractaddress;
+            this.collectionName = nft.dataset.collection;
+            const markup = `
+                <img src="${this.imageUrl}" class="list-preview__image">
+                <div class="list-preview__details">
+                    <span>${this.collectionName} collection</span>
+                    <h3>${this.name}</h3>
+                </div>
+            `;
+            document.querySelector(".list-preview").innerHTML = markup;
             handler();
         });
     }
@@ -1012,7 +1089,8 @@ class profileView extends (0, _viewJsDefault.default) {
             console.log(this._data);
             this._data.forEach((n)=>{
                 if (n.metadata) return this.content = this.content + `
-                        <div class="profile__nft-container">
+                        <div class="profile__nft-container" data-name="${n.metadata.name}" data-image="${n.metadata.image}" data-contractAddress="${n.tokenAddress}" data-collection="${n.name}">
+                            <p class="list-cta">+</p>
                             <div class="profile__nft-image">
                             <img
                                     src="${n.metadata.image}"
@@ -1022,7 +1100,7 @@ class profileView extends (0, _viewJsDefault.default) {
                                 <div class="profile__nft-details">
                                 <div class="profile__nft-description">
                                     <span>${n.name} collection</span>
-                                    <h3>${n.metadata.name}</h2>
+                                    <h3>${n.metadata.name}</h3>
                                     </div>
                                 </div>
                         </div>    
@@ -1032,7 +1110,30 @@ class profileView extends (0, _viewJsDefault.default) {
         return `
         <div class="profile">
             <div class="list__container">
-                <button class="logout-btn">List</button>
+                <span class="list-close">X</span>
+                <div class="list-preview">
+                    
+                </div>
+                <div class="list__price">
+                    <p>Price</p>
+                    <div class="list__price-container"> 
+                        <input class="list__price--input" placeholder="Amount" type="number"></input>
+                        <img src="${0, _ethereumEthLogoSvgDefault.default}">
+                    </div>
+                </div>
+                <div class="list__price">
+                <p>Duration</p>
+                <div class="list__price-container"> 
+                    <input class="list__duration--input" placeholder="24" type="number"></input>
+                    <select name="duration" id="duration" class="list__duration--select">
+                        <option value="hours">Hours</option>
+                        <option value="days">Days</option>
+                        <option value="weeks">Weeks</option>
+                        <option value="months">Months</option>
+                    </select>
+                </div>
+                </div>
+                <button class="list-btn">List</button>
             </div>
             <section class="profile__nft-preview">
             <div class="nft__details--preview">
@@ -1075,7 +1176,10 @@ class profileView extends (0, _viewJsDefault.default) {
 }
 exports.default = new profileView();
 
-},{"./View.js":"5cUXS","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../../../static/images/uzumakiFamily.png":"lYckW","../../../static/images/itachi.png":"4EBs5","../../../static/images/madara.png":"5ehne"}],"dQpO2":[function(require,module,exports) {
+},{"./View.js":"5cUXS","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../../../static/images/uzumakiFamily.png":"lYckW","../../../static/images/itachi.png":"4EBs5","../../../static/images/madara.png":"5ehne","../../../static/images/ethereum-eth-logo.svg":"1COko"}],"1COko":[function(require,module,exports) {
+module.exports = require("./helpers/bundle-url").getBundleURL("hWUTQ") + "ethereum-eth-logo.805344a2.svg" + "?" + Date.now();
+
+},{"./helpers/bundle-url":"lgJ39"}],"dQpO2":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _viewJs = require("./View.js");

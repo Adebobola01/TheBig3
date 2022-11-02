@@ -2,6 +2,7 @@ import View from "./View.js";
 import uzuImageurl from "../../../static/images/uzumakiFamily.png";
 import itachiUrl from "../../../static/images/itachi.png";
 import madaraUrl from "../../../static/images/madara.png";
+import ethurl from "../../../static/images/ethereum-eth-logo.svg";
 
 class profileView extends View {
     _parentElement = document.querySelector(".main");
@@ -9,12 +10,56 @@ class profileView extends View {
     contentBody = document.querySelector(".profile__user--body");
     container = document.querySelector(".profile__user");
     listContainer = document.querySelector(".list__container");
+    backdrop = document.querySelector("backdrop");
     // profileBody = document.querySelector(".profile__user--body");
+
     content = "";
+    collectionName;
+    imageUrl;
+    name;
+    contractAddress;
 
     profileHandler(handler) {
         this.profileLink.classList.add("active");
         this.profileLink.addEventListener("click", handler);
+    }
+
+    getListingDetails() {
+        const price = document.querySelector(".list__price--input").value;
+        const durationValue = document.querySelector(
+            ".list__duration--input"
+        ).value;
+        const durationUnit = document.querySelector(
+            ".list__duration--select"
+        ).value;
+        return {
+            price: price,
+            collection: this.collectionName,
+            imageUrl: this.imageUrl,
+            contractAddress: this.contractAddress,
+            durationValue: durationValue,
+            durationUnit: durationUnit,
+            name: this.name,
+        };
+    }
+
+    listNFT(handler) {
+        this._parentElement.addEventListener("click", (e) => {
+            if (!e.target.closest(".list-btn")) {
+                return;
+            }
+            handler();
+        });
+    }
+
+    closeListHandler(handler) {
+        this._parentElement.addEventListener("click", (e) => {
+            e.preventDefault();
+            if (!e.target.closest(".list-close")) {
+                return;
+            }
+            handler();
+        });
     }
 
     openListContainer() {
@@ -22,15 +67,25 @@ class profileView extends View {
             .querySelector(".list__container")
             .classList.toggle("open-list");
     }
-    listHandler(handler) {
-        // this._parentElement.addEventListener("click", handler);
+    showListHandler(handler) {
         this._parentElement.addEventListener("click", (e) => {
             e.preventDefault();
-            const nft = e.target.closest(".profile__nft-container");
-            if (!nft) {
-                console.log("not");
+            if (!e.target.closest(".list-cta")) {
                 return;
             }
+            const nft = e.target.closest(".profile__nft-container");
+            this.name = nft.dataset.name;
+            this.imageUrl = nft.dataset.image;
+            this.contractAddress = nft.dataset.contractaddress;
+            this.collectionName = nft.dataset.collection;
+            const markup = `
+                <img src="${this.imageUrl}" class="list-preview__image">
+                <div class="list-preview__details">
+                    <span>${this.collectionName} collection</span>
+                    <h3>${this.name}</h3>
+                </div>
+            `;
+            document.querySelector(".list-preview").innerHTML = markup;
             handler();
         });
     }
@@ -49,7 +104,8 @@ class profileView extends View {
                     return (this.content =
                         this.content +
                         `
-                        <div class="profile__nft-container">
+                        <div class="profile__nft-container" data-name="${n.metadata.name}" data-image="${n.metadata.image}" data-contractAddress="${n.tokenAddress}" data-collection="${n.name}">
+                            <p class="list-cta">+</p>
                             <div class="profile__nft-image">
                             <img
                                     src="${n.metadata.image}"
@@ -59,7 +115,7 @@ class profileView extends View {
                                 <div class="profile__nft-details">
                                 <div class="profile__nft-description">
                                     <span>${n.name} collection</span>
-                                    <h3>${n.metadata.name}</h2>
+                                    <h3>${n.metadata.name}</h3>
                                     </div>
                                 </div>
                         </div>    
@@ -71,7 +127,30 @@ class profileView extends View {
         return `
         <div class="profile">
             <div class="list__container">
-                <button class="logout-btn">List</button>
+                <span class="list-close">X</span>
+                <div class="list-preview">
+                    
+                </div>
+                <div class="list__price">
+                    <p>Price</p>
+                    <div class="list__price-container"> 
+                        <input class="list__price--input" placeholder="Amount" type="number"></input>
+                        <img src="${ethurl}">
+                    </div>
+                </div>
+                <div class="list__price">
+                <p>Duration</p>
+                <div class="list__price-container"> 
+                    <input class="list__duration--input" placeholder="24" type="number"></input>
+                    <select name="duration" id="duration" class="list__duration--select">
+                        <option value="hours">Hours</option>
+                        <option value="days">Days</option>
+                        <option value="weeks">Weeks</option>
+                        <option value="months">Months</option>
+                    </select>
+                </div>
+                </div>
+                <button class="list-btn">List</button>
             </div>
             <section class="profile__nft-preview">
             <div class="nft__details--preview">

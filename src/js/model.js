@@ -22,6 +22,10 @@ export const logoutHandler = () => {
     localStorage.removeItem("address");
 };
 
+const getToken = () => {
+    return localStorage.getItem("token");
+};
+
 export const setAutoLogout = (milliseconds) => {
     setTimeout(() => {
         logoutHandler();
@@ -114,6 +118,7 @@ export const getUserData = async () => {
     const result = await fetch("http://localhost:3000/profile", {
         method: "POST",
         headers: {
+            Authorization: "Bearer " + getToken(),
             "Content-Type": "application/json",
         },
         body: JSON.stringify({
@@ -128,4 +133,24 @@ export const getUserData = async () => {
         n.metadata.image = utils.getImage(n.metadata.image);
     });
     state.user.nfts = data;
+};
+
+export const list = async (values) => {
+    const list = await fetch("http://localhost:3000/list", {
+        method: "POST",
+        headers: {
+            Authorization: "Bearer " + getToken(),
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            contractAddr: values.contractAddress,
+            imageUrl: values.imageUrl,
+            collection: values.collection,
+            name: values.name,
+            price: values.price,
+            durationValue: values.durationValue,
+            durationUnit: values.durationUnit,
+        }),
+    });
+    console.log(await list.json());
 };
