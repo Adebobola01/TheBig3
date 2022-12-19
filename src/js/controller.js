@@ -129,6 +129,15 @@ const controlCloseList = () => {
     profileView.openListContainer();
 };
 
+const controlPreview = () => {
+    profileView.preview()
+}
+
+const controlProfilePreview = () => {
+    console.log("contr")
+    profileView.changePreview();
+}
+
 const controlList = async () => {
     console.log(model.state);
     const listValues = profileView.getListingDetails();
@@ -142,6 +151,7 @@ const init = function () {
     walletView.logoutHandler(controlLogout);
     controlConnected();
     controlHero();
+    controlProfilePreview()
     exploreView.exploreHandler(controlExplore);
     exploreView.detailViewHandler(controlDetailView);
     profileView.profileHandler(controlProfile);

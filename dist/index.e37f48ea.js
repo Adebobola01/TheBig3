@@ -637,6 +637,13 @@ const controlShowList = ()=>{
 const controlCloseList = ()=>{
     (0, _profileViewJsDefault.default).openListContainer();
 };
+const controlPreview = ()=>{
+    (0, _profileViewJsDefault.default).preview();
+};
+const controlProfilePreview = ()=>{
+    console.log("contr");
+    (0, _profileViewJsDefault.default).changePreview();
+};
 const controlList = async ()=>{
     console.log(_modelJs.state);
     const listValues = (0, _profileViewJsDefault.default).getListingDetails();
@@ -649,6 +656,7 @@ const init = function() {
     (0, _walletViewJsDefault.default).logoutHandler(controlLogout);
     controlConnected();
     controlHero();
+    controlProfilePreview();
     (0, _exploreViewJsDefault.default).exploreHandler(controlExplore);
     (0, _exploreViewJsDefault.default).detailViewHandler(controlDetailView);
     (0, _profileViewJsDefault.default).profileHandler(controlProfile);
@@ -1058,6 +1066,34 @@ class profileView extends (0, _viewJsDefault.default) {
             name: this.name
         };
     }
+    changePreview(handler) {
+        this._parentElement.addEventListener("click", (e)=>{
+            if (!e.target.closest("profile__nft-container")) return;
+            console.log("here");
+            const nft = e.target.closest(".profile__nft-container");
+            this.name = nft.dataset.name;
+            this.imageUrl = nft.dataset.image;
+            this.contractAddress = nft.dataset.contractaddress;
+            this.collectionName = nft.dataset.collection;
+            const markup = `
+            <div class="nft__details--preview">
+            <img
+            src="${this.imageUrl}"
+            alt="nft"
+            class="explore__nft--image"
+                    />
+                    <div class="explore__nft--details">
+                    <p class="explore__nft--name">${this.name}</p>
+                        <div class="explore__nft--price">
+                        <p>23 ETH</p>
+                        </div>
+                        </div>
+                        </div>
+            `;
+            this._parentElement.querySelector(".profile__nft-preview").innerHTML = markup;
+            handler();
+        });
+    }
     listNFT(handler) {
         this._parentElement.addEventListener("click", (e)=>{
             if (!e.target.closest(".list-btn")) return;
@@ -1077,12 +1113,34 @@ class profileView extends (0, _viewJsDefault.default) {
     showListHandler(handler) {
         this._parentElement.addEventListener("click", (e)=>{
             e.preventDefault();
+            if (e.target.closest(".profile__nft-container")) {
+                const nft = e.target.closest(".profile__nft-container");
+                this.name = nft.dataset.name;
+                this.imageUrl = nft.dataset.image;
+                this.collectionName = nft.dataset.collection;
+                const markup2 = `
+                <div class="nft__details--preview">
+                <img
+                src="${this.imageUrl}"
+                alt="nft"
+                class="explore__nft--image"
+                        />
+                        <div class="explore__nft--details">
+                        <p class="explore__nft--name">${this.name}</p>
+                            <div class="explore__nft--price">
+                            <p>23 ETH</p>
+                            </div>
+                            </div>
+                            </div>
+                `;
+                this._parentElement.querySelector(".profile__nft-preview").innerHTML = markup2;
+            }
             if (!e.target.closest(".list-cta")) return;
-            const nft = e.target.closest(".profile__nft-container");
-            this.name = nft.dataset.name;
-            this.imageUrl = nft.dataset.image;
-            this.contractAddress = nft.dataset.contractaddress;
-            this.collectionName = nft.dataset.collection;
+            const nft1 = e.target.closest(".profile__nft-container");
+            this.name = nft1.dataset.name;
+            this.imageUrl = nft1.dataset.image;
+            this.contractAddress = nft1.dataset.contractaddress;
+            this.collectionName = nft1.dataset.collection;
             const markup = `
                 <img src="${this.imageUrl}" class="list-preview__image">
                 <div class="list-preview__details">

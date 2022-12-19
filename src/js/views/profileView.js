@@ -43,6 +43,38 @@ class profileView extends View {
         };
     }
 
+    changePreview(handler) {
+        
+        this._parentElement.addEventListener("click", (e) => {
+            if (!e.target.closest("profile__nft-container")){
+                return
+            }
+            console.log('here')
+            const nft = e.target.closest(".profile__nft-container");
+            this.name = nft.dataset.name;
+            this.imageUrl = nft.dataset.image;
+            this.contractAddress = nft.dataset.contractaddress;
+            this.collectionName = nft.dataset.collection;
+            const markup = `
+            <div class="nft__details--preview">
+            <img
+            src="${this.imageUrl}"
+            alt="nft"
+            class="explore__nft--image"
+                    />
+                    <div class="explore__nft--details">
+                    <p class="explore__nft--name">${this.name}</p>
+                        <div class="explore__nft--price">
+                        <p>23 ETH</p>
+                        </div>
+                        </div>
+                        </div>
+            `
+            this._parentElement.querySelector(".profile__nft-preview").innerHTML = markup
+            handler()
+        })
+    }
+
     listNFT(handler) {
         this._parentElement.addEventListener("click", (e) => {
             if (!e.target.closest(".list-btn")) {
@@ -70,6 +102,28 @@ class profileView extends View {
     showListHandler(handler) {
         this._parentElement.addEventListener("click", (e) => {
             e.preventDefault();
+            if (e.target.closest(".profile__nft-container")) {
+                const nft = e.target.closest(".profile__nft-container");
+                this.name = nft.dataset.name;
+                this.imageUrl = nft.dataset.image;
+                this.collectionName = nft.dataset.collection;
+                const markup2 = `
+                <div class="nft__details--preview">
+                <img
+                src="${this.imageUrl}"
+                alt="nft"
+                class="explore__nft--image"
+                        />
+                        <div class="explore__nft--details">
+                        <p class="explore__nft--name">${this.name}</p>
+                            <div class="explore__nft--price">
+                            <p>23 ETH</p>
+                            </div>
+                            </div>
+                            </div>
+                `
+                this._parentElement.querySelector(".profile__nft-preview").innerHTML = markup2
+            }
             if (!e.target.closest(".list-cta")) {
                 return;
             }
