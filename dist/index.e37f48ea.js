@@ -641,7 +641,6 @@ const controlPreview = ()=>{
     (0, _profileViewJsDefault.default).preview();
 };
 const controlProfilePreview = ()=>{
-    console.log("contr");
     (0, _profileViewJsDefault.default).changePreview();
 };
 const controlList = async ()=>{

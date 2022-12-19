@@ -134,7 +134,6 @@ const controlPreview = () => {
 }
 
 const controlProfilePreview = () => {
-    console.log("contr")
     profileView.changePreview();
 }
 
