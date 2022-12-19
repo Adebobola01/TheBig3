@@ -84,5 +84,20 @@
     p {
         margin: 0;
         font-size: 2rem;
+        border-bottom: 2px solid gray;
+        padding-bottom: 1rem;
+    }
+}
+
+.authors {
+    padding: 2rem;
+}
+
+.author {
+
+    img {
+        width: 5rem;
+        height: 5rem;
+        border-radius: 50%;
     }
 }

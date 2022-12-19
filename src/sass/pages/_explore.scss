@@ -1,10 +1,9 @@
 .explore {
     &__container {
         display: flex;
-        overflow: hidden;
+        overflow-y: scroll;
         // position: relative;
-        height: 100%;
-        margin-bottom: 4rem;
+        height: 150vh;
         background-color: rgb(22 21 34);
     }
 
@@ -12,8 +11,7 @@
         background-color: gray;
         position: sticky;
         min-width: 20rem;
-        overflow-y: auto;
-        max-height: 100vh;
+        // max-height: 100vh;
         color: white;
         padding: 1.5rem;
         font-size: 1.3rem;
@@ -27,8 +25,9 @@
         display: flex;
         padding: 3rem 0 3rem 3rem;
         flex-wrap: wrap;
+        height: 100%;
         // margin-left: 20rem;
         // overflow: scroll;
-        overflow-y: auto;
+        overflow-y: scroll;
     }
 }
