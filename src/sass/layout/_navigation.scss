@@ -1,5 +1,5 @@
 .nav {
-    width: 30%;
+    width: 40%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -9,6 +9,7 @@
     text-decoration: none;
     color: #7891d5;
     display: flex;
+    font-size: 2rem;
     align-items: center;
     &:hover {
         color: rgb(133, 133, 133);

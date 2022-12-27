@@ -82,13 +82,14 @@
 }
 
 .logout-btn {
-    height: 2rem;
-    width: 4rem;
+    height: 2.5rem;
+    width: 5rem;
     background-color: transparent;
     border: 2px solid #db469f;
     color: #db469f;
     cursor: pointer;
     font-weight: 700;
+    font-size: 1rem;
 
     &:hover {
         background-color: #db469f;

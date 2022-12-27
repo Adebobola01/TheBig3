@@ -111,7 +111,8 @@
             display: flex;
             padding: 0.5rem 1rem;
             background-color: rgb(63, 62, 77);
-            font-size: 2rem;
+            font-size: 6rem;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
         }
         &-description {
             display: flex;
@@ -133,6 +134,7 @@
         width: 25rem;
         position: absolute;
         right: -30rem;
+        font-size: 2rem;
         display: flex;
         padding: 2rem;
         flex-direction: column;
@@ -191,9 +193,9 @@
         }
 
         &__details {
+            font-size: 2.5rem;
             h3 {
                 margin: 0;
-                font-size: 2rem;
             }
         }
     }

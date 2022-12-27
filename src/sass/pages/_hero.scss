@@ -1,9 +1,11 @@
 .section-hero {
-    padding: 7rem 10rem 5rem;
+    padding: 7rem 10rem 5rem 0rem;
+    margin: auto;
     // font-family: "Courier New", Courier, monospace;
     font-size: 2rem;
     display: flex;
     align-items: center;
+    justify-content: center;
     background-image: linear-gradient(
             rgba(16, 29, 44, 0.9),
             rgba(16, 29, 44, 0.9)
@@ -17,11 +19,11 @@
 
 .row {
     display: flex;
-    // flex-direction: column;
 }
 .col-1-of-2 {
     height: 40rem;
     max-width: 30rem;
+    font-size: 7rem;
 
     &:not(:last-child) {
         margin-right: 10rem;
@@ -54,7 +56,7 @@
             display: flex;
             padding: 0.5rem 1rem;
             background-color: rgb(63, 62, 77);
-            font-size: 2rem;
+            font-size: 6rem;
 
             & img {
                 height: 4rem;
