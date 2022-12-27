@@ -1,5 +1,6 @@
 export default class View {
     _data;
+    errorContainer = document.querySelector(".wallet__container");
     render(data, render = true) {
         if (data) {
             this._data = data;
@@ -11,5 +12,9 @@ export default class View {
 
     _clear() {
         this._parentElement.innerHTML = "";
+    }
+
+    renderError(msg) {
+        this.errorContainer.textContent = msg;
     }
 }

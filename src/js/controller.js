@@ -87,7 +87,7 @@ const controlHero = async function () {
 const controlProfile = async function () {
     try {
         if (!model.state.isConnected) {
-            return console.log("you must connect firs!");
+            profileView.renderError("You must connect first!")
         }
         await model.getUserData();
         profileView.render(model.state.user.nfts);

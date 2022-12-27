@@ -601,7 +601,7 @@ const controlHero = async function() {
 };
 const controlProfile = async function() {
     try {
-        if (!_modelJs.state.isConnected) return console.log("you must connect firs!");
+        if (!_modelJs.state.isConnected) (0, _profileViewJsDefault.default).renderError("You must connect first!");
         await _modelJs.getUserData();
         (0, _profileViewJsDefault.default).render(_modelJs.state.user.nfts);
     } catch (error) {
@@ -931,6 +931,7 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 class View {
     _data;
+    errorContainer = document.querySelector(".wallet__container");
     render(data, render = true) {
         if (data) this._data = data;
         const markup = this._generateMarkup();
@@ -939,6 +940,9 @@ class View {
     }
     _clear() {
         this._parentElement.innerHTML = "";
+    }
+    renderError(msg) {
+        this.errorContainer.textContent = msg;
     }
 }
 exports.default = View;
