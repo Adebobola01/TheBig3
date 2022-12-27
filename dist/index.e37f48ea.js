@@ -723,7 +723,7 @@ const getUserAccount = async ()=>{
             method: "eth_requestAccounts"
         });
         const account = accounts[0];
-        const result = await fetch("http://localhost:3000/message", {
+        const result = await fetch("https://big3-backend.onrender.com/message", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -860,9 +860,9 @@ exports.export = function(dest, destName, get) {
 },{}],"3S0AV":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-var _viewJs = require("./View.js");
-var _viewJsDefault = parcelHelpers.interopDefault(_viewJs);
-class WalletView extends (0, _viewJsDefault.default) {
+var _view = require("./View");
+var _viewDefault = parcelHelpers.interopDefault(_view);
+class WalletView extends (0, _viewDefault.default) {
     _parentElement = document.querySelector(".wallets");
     metaWallet = document.querySelector(".metamask__btn");
     connectBtn = document.querySelector(".connect__wallet--btn");
@@ -911,7 +911,7 @@ class WalletView extends (0, _viewJsDefault.default) {
 }
 exports.default = new WalletView();
 
-},{"./View.js":"5cUXS","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5cUXS":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./View":"5cUXS"}],"5cUXS":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 class View {
@@ -927,6 +927,7 @@ class View {
         this._parentElement.innerHTML = "";
     }
     renderError(msg) {
+        this.errorContainer.classList.add("");
         this.errorContainer.textContent = msg;
     }
 }
@@ -935,15 +936,15 @@ exports.default = View;
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8UYUH":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-var _viewJs = require("./View.js");
-var _viewJsDefault = parcelHelpers.interopDefault(_viewJs);
+var _view = require("./View");
+var _viewDefault = parcelHelpers.interopDefault(_view);
 var _uzumakiFamilyPng = require("../../../static/images/uzumakiFamily.png");
 var _uzumakiFamilyPngDefault = parcelHelpers.interopDefault(_uzumakiFamilyPng);
 var _itachiPng = require("../../../static/images/itachi.png");
 var _itachiPngDefault = parcelHelpers.interopDefault(_itachiPng);
 var _madaraPng = require("../../../static/images/madara.png");
 var _madaraPngDefault = parcelHelpers.interopDefault(_madaraPng);
-class heroView extends (0, _viewJsDefault.default) {
+class heroView extends (0, _viewDefault.default) {
     _parentElement = document.querySelector(".hero__nft-container");
     _generateMarkup() {
         return `
@@ -967,7 +968,7 @@ class heroView extends (0, _viewJsDefault.default) {
 }
 exports.default = new heroView();
 
-},{"./View.js":"5cUXS","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../../../static/images/uzumakiFamily.png":"lYckW","../../../static/images/itachi.png":"4EBs5","../../../static/images/madara.png":"5ehne"}],"lYckW":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../../../static/images/uzumakiFamily.png":"lYckW","../../../static/images/itachi.png":"4EBs5","../../../static/images/madara.png":"5ehne","./View":"5cUXS"}],"lYckW":[function(require,module,exports) {
 module.exports = require("./helpers/bundle-url").getBundleURL("hWUTQ") + "uzumakiFamily.f4577ba6.png" + "?" + Date.now();
 
 },{"./helpers/bundle-url":"lgJ39"}],"lgJ39":[function(require,module,exports) {
@@ -1013,8 +1014,8 @@ module.exports = require("./helpers/bundle-url").getBundleURL("hWUTQ") + "madara
 },{"./helpers/bundle-url":"lgJ39"}],"8Hi5l":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-var _viewJs = require("./View.js");
-var _viewJsDefault = parcelHelpers.interopDefault(_viewJs);
+var _view = require("./View");
+var _viewDefault = parcelHelpers.interopDefault(_view);
 var _uzumakiFamilyPng = require("../../../static/images/uzumakiFamily.png");
 var _uzumakiFamilyPngDefault = parcelHelpers.interopDefault(_uzumakiFamilyPng);
 var _itachiPng = require("../../../static/images/itachi.png");
@@ -1023,7 +1024,7 @@ var _madaraPng = require("../../../static/images/madara.png");
 var _madaraPngDefault = parcelHelpers.interopDefault(_madaraPng);
 var _ethereumEthLogoSvg = require("../../../static/images/ethereum-eth-logo.svg");
 var _ethereumEthLogoSvgDefault = parcelHelpers.interopDefault(_ethereumEthLogoSvg);
-class profileView extends (0, _viewJsDefault.default) {
+class profileView extends (0, _viewDefault.default) {
     _parentElement = document.querySelector(".main");
     profileLink = document.querySelector(".profile-link");
     contentBody = document.querySelector(".profile__user--body");
@@ -1237,19 +1238,19 @@ class profileView extends (0, _viewJsDefault.default) {
 }
 exports.default = new profileView();
 
-},{"./View.js":"5cUXS","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../../../static/images/uzumakiFamily.png":"lYckW","../../../static/images/itachi.png":"4EBs5","../../../static/images/madara.png":"5ehne","../../../static/images/ethereum-eth-logo.svg":"1COko"}],"1COko":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../../../static/images/uzumakiFamily.png":"lYckW","../../../static/images/itachi.png":"4EBs5","../../../static/images/madara.png":"5ehne","../../../static/images/ethereum-eth-logo.svg":"1COko","./View":"5cUXS"}],"1COko":[function(require,module,exports) {
 module.exports = require("./helpers/bundle-url").getBundleURL("hWUTQ") + "ethereum-eth-logo.805344a2.svg" + "?" + Date.now();
 
 },{"./helpers/bundle-url":"lgJ39"}],"dQpO2":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-var _viewJs = require("./View.js");
-var _viewJsDefault = parcelHelpers.interopDefault(_viewJs);
+var _view = require("./View");
+var _viewDefault = parcelHelpers.interopDefault(_view);
 var _uzumakiFamilyPng = require("../../../static/images/uzumakiFamily.png");
 var _uzumakiFamilyPngDefault = parcelHelpers.interopDefault(_uzumakiFamilyPng);
 var _itachiPng = require("../../../static/images/itachi.png");
 var _itachiPngDefault = parcelHelpers.interopDefault(_itachiPng);
-class exploreView extends (0, _viewJsDefault.default) {
+class exploreView extends (0, _viewDefault.default) {
     _parentElement = document.querySelector(".main");
     exploreCta = document.querySelector(".explore-cta");
     exploreLink = document.querySelector(".explore-link");
@@ -1639,18 +1640,18 @@ class exploreView extends (0, _viewJsDefault.default) {
 }
 exports.default = new exploreView();
 
-},{"./View.js":"5cUXS","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../../../static/images/uzumakiFamily.png":"lYckW","../../../static/images/itachi.png":"4EBs5"}],"25RBo":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../../../static/images/uzumakiFamily.png":"lYckW","../../../static/images/itachi.png":"4EBs5","./View":"5cUXS"}],"25RBo":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-var _viewJs = require("./View.js");
-var _viewJsDefault = parcelHelpers.interopDefault(_viewJs);
+var _view = require("./View");
+var _viewDefault = parcelHelpers.interopDefault(_view);
 var _uzumakiFamilyPng = require("../../../static/images/uzumakiFamily.png");
 var _uzumakiFamilyPngDefault = parcelHelpers.interopDefault(_uzumakiFamilyPng);
 var _itachiPng = require("../../../static/images/itachi.png");
 var _itachiPngDefault = parcelHelpers.interopDefault(_itachiPng);
 var _madaraPng = require("../../../static/images/madara.png");
 var _madaraPngDefault = parcelHelpers.interopDefault(_madaraPng);
-class detailsView extends (0, _viewJsDefault.default) {
+class detailsView extends (0, _viewDefault.default) {
     _parentElement = document.querySelector(".main");
     _generateMarkup() {
         return `
@@ -1778,6 +1779,6 @@ class detailsView extends (0, _viewJsDefault.default) {
 }
 exports.default = new detailsView();
 
-},{"./View.js":"5cUXS","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../../../static/images/uzumakiFamily.png":"lYckW","../../../static/images/itachi.png":"4EBs5","../../../static/images/madara.png":"5ehne"}]},["fA0o9","aenu9"], "aenu9", "parcelRequireb9b7")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../../../static/images/uzumakiFamily.png":"lYckW","../../../static/images/itachi.png":"4EBs5","../../../static/images/madara.png":"5ehne","./View":"5cUXS"}]},["fA0o9","aenu9"], "aenu9", "parcelRequireb9b7")
 
 //# sourceMappingURL=index.e37f48ea.js.map

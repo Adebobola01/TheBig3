@@ -1,4 +1,4 @@
-import View from "./View.js";
+import View from "./View";
 import uzuImageurl from "../../../static/images/uzumakiFamily.png";
 import itachiUrl from "../../../static/images/itachi.png";
 import madaraUrl from "../../../static/images/madara.png";

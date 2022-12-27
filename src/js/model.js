@@ -53,7 +53,7 @@ export const getUserAccount = async () => {
             method: "eth_requestAccounts",
         });
         const account = accounts[0];
-        const result = await fetch("http://localhost:3000/message", {
+        const result = await fetch("https://big3-backend.onrender.com/message", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

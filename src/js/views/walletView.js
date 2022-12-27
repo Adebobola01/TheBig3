@@ -1,4 +1,4 @@
-import View from "./View.js";
+import View from "./View";
 
 class WalletView extends View {
     _parentElement = document.querySelector(".wallets");

@@ -1,6 +1,7 @@
 export default class View {
     _data;
     errorContainer = document.querySelector(".wallet__container");
+    
     render(data, render = true) {
         if (data) {
             this._data = data;
@@ -15,6 +16,7 @@ export default class View {
     }
 
     renderError(msg) {
+        this.errorContainer.classList.add("")
         this.errorContainer.textContent = msg;
     }
 }
