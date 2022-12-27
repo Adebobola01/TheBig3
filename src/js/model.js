@@ -73,7 +73,7 @@ export const getUserAccount = async () => {
 export const verifyMessage = async () => {
     try {
         if (state.message && state.signature) {
-            const result = await fetch("http://localhost:3000/verify", {
+            const result = await fetch("https://big3-backend.onrender.com/verify", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -100,39 +100,24 @@ export const verifyMessage = async () => {
 };
 
 export const getHeroData = async () => {
-    // try {
-    //     const result = await fetch("http://localhost:3000/heroNFT", {
-    //         method: "GET",
-    //         headers: {
-    //             "Content-Type": "application/json",
-    //         },
-    //     });
-    //     const data = await result.json();
-    //     return JSON.parse(data.data);
-    // } catch (error) {
-    //     console.log(error);
-    // }
-
-
     try {
-        const result = await fetch("http://127.0.0.1:2000/", {
-            method: "POST",
+        const result = await fetch("https://big3-backend.onrender.com/heroNFT", {
+            method: "GET",
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({
-                operation_type: "add",
-                x: 2,
-                y: 3
-            })
-        }) 
+        });
+        const data = await result.json();
+        return JSON.parse(data.data);
     } catch (error) {
-        console.log(error)
+        console.log(error);
     }
+
+
 };
 
 export const getUserData = async () => {
-    const result = await fetch("http://localhost:3000/profile", {
+    const result = await fetch("https://big3-backend.onrender.com/profile", {
         method: "POST",
         headers: {
             Authorization: "Bearer " + getToken(),
@@ -153,7 +138,7 @@ export const getUserData = async () => {
 };
 
 export const list = async (values) => {
-    const list = await fetch("http://localhost:3000/list", {
+    const list = await fetch("https://big3-backend.onrender.com/list", {
         method: "POST",
         headers: {
             Authorization: "Bearer " + getToken(),
