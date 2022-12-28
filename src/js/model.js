@@ -168,7 +168,7 @@ export const oauthSignIn = async () => {
 
   // Parameters to pass to OAuth 2.0 endpoint.
   var params = {'client_id': '987872514521-42gaj8k34c809usv4b6jcq5e2lcbqqu5.apps.googleusercontent.com',
-  'redirect_uri': 'https://certgo.app',
+  'redirect_uri': 'https://big3.onrender.com',
   'response_type': 'token',
   'scope': 'https://www.googleapis.com/auth/drive.metadata.readonly',
                 'include_granted_scopes': 'true',
