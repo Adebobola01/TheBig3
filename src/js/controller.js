@@ -64,6 +64,15 @@ const controlConnectWallet = async function () {
     }
 };
 
+const controlAuth = async function () {
+    try {
+        const result = await model.oauthSignIn()
+        console.log(result)
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 const controlConnected = async function () {
     try {
         if (model.state.isConnected) {
@@ -146,7 +155,7 @@ const controlList = async () => {
 
 const init = function () {
     controlInitialState();
-    walletView.WalletsHandler(controlDisplayWallet, controlConnectWallet);
+    walletView.WalletsHandler(controlDisplayWallet, controlConnectWallet, controlAuth);
     walletView.logoutHandler(controlLogout);
     controlConnected();
     controlHero();

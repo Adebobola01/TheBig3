@@ -583,6 +583,14 @@ const controlConnectWallet = async function() {
         console.log(error);
     }
 };
+const controlAuth = async function() {
+    try {
+        const result = await _modelJs.oauthSignIn();
+        console.log(result);
+    } catch (error) {
+        console.log(error);
+    }
+};
 const controlConnected = async function() {
     try {
         if (_modelJs.state.isConnected) (0, _walletViewJsDefault.default).displayAddress(_modelJs.state.address);
@@ -651,7 +659,7 @@ const controlList = async ()=>{
 };
 const init = function() {
     controlInitialState();
-    (0, _walletViewJsDefault.default).WalletsHandler(controlDisplayWallet, controlConnectWallet);
+    (0, _walletViewJsDefault.default).WalletsHandler(controlDisplayWallet, controlConnectWallet, controlAuth);
     (0, _walletViewJsDefault.default).logoutHandler(controlLogout);
     controlConnected();
     controlHero();
@@ -677,6 +685,7 @@ parcelHelpers.export(exports, "verifyMessage", ()=>verifyMessage);
 parcelHelpers.export(exports, "getHeroData", ()=>getHeroData);
 parcelHelpers.export(exports, "getUserData", ()=>getUserData);
 parcelHelpers.export(exports, "list", ()=>list);
+parcelHelpers.export(exports, "oauthSignIn", ()=>oauthSignIn);
 var _helpersJs = require("./helpers.js");
 const web3 = new Web3(Web3.givenProvider);
 const state = {
@@ -816,6 +825,34 @@ const list = async (values)=>{
     });
     console.log(await list.json());
 };
+const oauthSignIn = async ()=>{
+    // Google's OAuth 2.0 endpoint for requesting an access token
+    var oauth2Endpoint = "https://accounts.google.com/o/oauth2/v2/auth";
+    // Create <form> element to submit parameters to OAuth 2.0 endpoint.
+    var form = document.createElement("form");
+    form.setAttribute("method", "GET"); // Send as a GET request.
+    form.setAttribute("action", oauth2Endpoint);
+    // Parameters to pass to OAuth 2.0 endpoint.
+    var params = {
+        "client_id": "52168821352-4sc11trj4qtq95051mrnrbinfgmla3ai.apps.googleusercontent.com",
+        "redirect_uri": "https://big3.onrender.com/",
+        "response_type": "token",
+        "scope": "https://www.googleapis.com/auth/drive.metadata.readonly",
+        "include_granted_scopes": "true",
+        "state": "pass-through value"
+    };
+    // Add form parameters as hidden input values.
+    for(var p in params){
+        var input = document.createElement("input");
+        input.setAttribute("type", "hidden");
+        input.setAttribute("name", p);
+        input.setAttribute("value", params[p]);
+        form.appendChild(input);
+    }
+    // Add form to page and submit it to open the OAuth 2.0 endpoint.
+    document.body.appendChild(form);
+    form.submit();
+};
 
 },{"./helpers.js":"hGI1E","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hGI1E":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -871,6 +908,7 @@ class WalletView extends (0, _viewJsDefault.default) {
     btnContainer = document.querySelector(".btn__container");
     logoutBtn = document.querySelector(".logout-btn");
     addrContainer = document.querySelector(".addr-container");
+    authBtn = document.querySelector(".walletConnect__btn");
     toggle() {
         this.walletContainer.classList.toggle("open-wallets");
         this.backdrop.classList.toggle("open");
@@ -881,7 +919,7 @@ class WalletView extends (0, _viewJsDefault.default) {
     // showWallets() {
     //     this.walletContainer.classList.
     // }
-    WalletsHandler(handler1, handler2) {
+    WalletsHandler(handler1, handler2, handler3) {
         this.connectBtn.addEventListener("click", function() {
             handler1();
         });
@@ -890,6 +928,9 @@ class WalletView extends (0, _viewJsDefault.default) {
         });
         this.backdrop.addEventListener("click", function() {
             handler1();
+        });
+        this.authBtn.addEventListener("click", function() {
+            handler3();
         });
     }
     displayAddress(isConnected, address) {

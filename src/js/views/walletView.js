@@ -9,6 +9,7 @@ class WalletView extends View {
     btnContainer = document.querySelector(".btn__container");
     logoutBtn = document.querySelector(".logout-btn");
     addrContainer = document.querySelector(".addr-container");
+    authBtn = document.querySelector(".walletConnect__btn")
 
     toggle() {
         this.walletContainer.classList.toggle("open-wallets");
@@ -22,7 +23,7 @@ class WalletView extends View {
     //     this.walletContainer.classList.
     // }
 
-    WalletsHandler(handler1, handler2) {
+    WalletsHandler(handler1, handler2,handler3) {
         this.connectBtn.addEventListener("click", function () {
             handler1();
         });
@@ -32,6 +33,9 @@ class WalletView extends View {
         this.backdrop.addEventListener("click", function () {
             handler1();
         });
+        this.authBtn.addEventListener("click", function () {
+            handler3()
+        })
     }
 
     displayAddress(isConnected, address) {
