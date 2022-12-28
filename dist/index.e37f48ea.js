@@ -834,8 +834,8 @@ const oauthSignIn = async ()=>{
     form.setAttribute("action", oauth2Endpoint);
     // Parameters to pass to OAuth 2.0 endpoint.
     var params = {
-        "client_id": "52168821352-4sc11trj4qtq95051mrnrbinfgmla3ai.apps.googleusercontent.com",
-        "redirect_uri": "https://big3.onrender.com/",
+        "client_id": "987872514521-42gaj8k34c809usv4b6jcq5e2lcbqqu5.apps.googleusercontent.com",
+        "redirect_uri": "https://certgo.app",
         "response_type": "token",
         "scope": "https://www.googleapis.com/auth/drive.metadata.readonly",
         "include_granted_scopes": "true",
