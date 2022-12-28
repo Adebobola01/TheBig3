@@ -551,6 +551,10 @@ const address = localStorage.getItem("address");
 ///initial state
 if (module.hot) module.hot.accept();
 const controlInitialState = async ()=>{
+    const currentUrl = window.location.href;
+    const list = currentUrl.split("&");
+    const accsessToken = list[0].split("=");
+    console.log(accsessToken[2]);
     ethereum.on("chainChanged", (chainId)=>{
         if (chainId === "0x5") window.location.reload();
         console.log("please connect to the Goerli network!");
@@ -837,9 +841,7 @@ const oauthSignIn = async ()=>{
         "client_id": "987872514521-42gaj8k34c809usv4b6jcq5e2lcbqqu5.apps.googleusercontent.com",
         "redirect_uri": "https://big3.onrender.com",
         "response_type": "token",
-        "scope": "https://www.googleapis.com/auth/drive.metadata.readonly",
-        "include_granted_scopes": "true",
-        "state": "pass-through value"
+        "scope": "profile"
     };
     // Add form parameters as hidden input values.
     for(var p in params){

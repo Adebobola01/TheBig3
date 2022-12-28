@@ -170,9 +170,7 @@ export const oauthSignIn = async () => {
   var params = {'client_id': '987872514521-42gaj8k34c809usv4b6jcq5e2lcbqqu5.apps.googleusercontent.com',
   'redirect_uri': 'https://big3.onrender.com',
   'response_type': 'token',
-  'scope': 'https://www.googleapis.com/auth/drive.metadata.readonly',
-                'include_granted_scopes': 'true',
-                'state': 'pass-through value'};
+  'scope': 'profile'};
 
   // Add form parameters as hidden input values.
   for (var p in params) {

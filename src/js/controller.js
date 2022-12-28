@@ -17,6 +17,10 @@ if (module.hot) {
 }
 
 const controlInitialState = async () => {
+    const currentUrl = window.location.href;
+    const list = currentUrl.split("&");
+    const accsessToken = list[0].split("=")
+    console.log(accsessToken[2])
     ethereum.on("chainChanged", (chainId) => {
         if (chainId === "0x5") {
             window.location.reload();
