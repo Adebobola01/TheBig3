@@ -194,14 +194,13 @@ body {
 }
 
 .toggle-button {
-  width: 4rem;
+  width: 2rem;
   cursor: pointer;
   vertical-align: middle;
   background: none;
   border: none;
   margin-left: .5rem;
-  padding-top: 0;
-  padding-bottom: 0;
+  padding: 0;
 }
 
 .toggle-button:focus {
@@ -423,27 +422,10 @@ body {
   left: 1rem;
 }
 
-@media (max-width: 800px) {
-  .search {
-    margin-left: 2rem;
-  }
-}
-
-@media (max-width: 600px) {
-  .search {
-    margin-left: 1rem;
-    margin-right: 1.6rem;
-  }
-
-  .search__field {
-    padding-left: 2rem;
-    font-size: 1.4rem;
-  }
-}
-
 .logo {
   height: 100%;
   margin-right: 2rem;
+  display: flex;
   position: relative;
 }
 
@@ -458,10 +440,10 @@ body {
   font-size: 4rem;
 }
 
-@media (max-width: 500px) {
-  .logo {
-    margin-right: .5rem;
-  }
+.logo__icon {
+  width: 5rem;
+  height: 5rem;
+  margin-top: .5rem;
 }
 
 .btn__container {
@@ -490,6 +472,52 @@ body {
 
 .nav a:active, .nav a:focus {
   border-bottom: 1px solid #db469f;
+}
+
+@media (max-width: 800px) {
+  .search {
+    margin-left: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .search {
+    margin-left: 1rem;
+    margin-right: 1.6rem;
+  }
+
+  .search__field {
+    padding-left: 2rem;
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .logo {
+    margin-right: .5rem;
+  }
+
+  .logo__title {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 402px) {
+  .search {
+    margin-left: .4rem;
+    margin-right: .5rem;
+    display: none;
+  }
+
+  .nav-bar {
+    width: 100%;
+    justify-content: flex-end;
+    padding-right: 1rem;
+  }
+
+  .logo {
+    margin-right: 10rem;
+  }
 }
 
 .nav {
@@ -632,11 +660,15 @@ body {
 
 @media (max-width: 400px) {
   .footer {
-    padding-left: .5rem;
+    padding-left: 0;
+  }
+
+  .footer__container {
+    padding: .5rem;
   }
 
   .footer-nav__link:not(:last-child) {
-    margin-right: .2rem;
+    margin-right: 0;
   }
 
   .footer__socials {
@@ -1090,7 +1122,6 @@ body {
 }
 
 .section-hero {
-  height: 100%;
   background-image: linear-gradient(#101d2ce6, #101d2ce6), url("background-Image.57113f43.jpg");
   background-position: top;
   background-size: cover;
@@ -1115,6 +1146,25 @@ body {
 
 .col-1-of-2:not(:last-child) {
   margin-right: 10rem;
+}
+
+@media (max-width: 700px) {
+  .col-1-of-2 {
+    font-size: 10rem;
+  }
+
+  .col-1-of-2:not(:last-child) {
+    margin-right: 0;
+  }
+
+  .section-hero {
+    height: 50rem;
+    padding: 5rem 0;
+  }
+
+  .hero__nft-container {
+    display: none;
+  }
 }
 
 .hero__nft-image {

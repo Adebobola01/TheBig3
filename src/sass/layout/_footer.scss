@@ -113,11 +113,15 @@
 
 @media (max-width: 400px) {
     .footer{
-        padding-left: .5rem;
+        padding-left: 0;
+
+        &__container{
+            padding: .5rem;
+        }
 
         &-nav__link{
             &:not(:last-child) {
-                margin-right: .2rem;
+                margin-right: 0;
             }
         }
 
