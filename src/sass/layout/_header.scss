@@ -29,7 +29,8 @@
     height: 3rem;
     width: 50rem;
     position: relative;
-    margin-left: 8rem;
+    margin-left: 6rem;
+    margin-right: 3rem;
 
     &__field {
         outline: none;
@@ -60,6 +61,23 @@
     }
 }
 
+
+@media (max-width: 800px) {
+    .search{
+        margin-left: 2rem;
+    }
+}
+@media (max-width: 600px) {
+    .search{
+        margin-left: 1rem;
+
+        &__field{
+            font-size: 1.4rem;
+            padding-left: .5rem;
+        }
+    }
+}
+
 .logo {
     // width: 20%;
     margin-right: 2rem;
@@ -78,16 +96,22 @@
     }
 }
 
+.btn__container {
+    border-radius: 1.5rem;
+    margin: 0;
+}
+
+.mobile__connect{
+    display: none;
+}
+
+
 .nav {
     // height: 100%;
     // justify-content: flex-end;
     align-self: flex-end;
     // justify-self: flex-start;
 
-    .btn__container {
-        border-radius: 1.5rem;
-        margin: 0;
-    }
 
     a {
         height: 7rem;

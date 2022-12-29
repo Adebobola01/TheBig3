@@ -47,6 +47,7 @@
     }
 }
 
+
 .copyright {
     font-family: "Nunito", sans-serif;
     text-align: center;
@@ -67,4 +68,61 @@
 
 .social-img {
     width: 100%;
+}
+
+@media (max-width: 900px) {
+    .footer{
+        padding-left: 20rem;
+
+        &-nav__link{
+            &:not(:last-child) {
+                margin-right: 1rem;
+            }
+        }
+    }
+}
+
+@media (max-width: 800px){
+    .footer__socials{
+        margin-left: 3rem;
+    }
+}
+
+@media (max-width: 705px){
+    .footer{
+        padding-left: 10rem;
+    }
+
+}
+
+@media (max-width: 600px){
+    .footer{
+        padding-left: 5rem;
+    }
+}
+
+@media (max-width: 425px) {
+    .footer{
+        padding-left: 2rem;
+
+        &__socials{
+            margin-left: 1.5rem;
+        }
+    }
+}
+
+@media (max-width: 400px) {
+    .footer{
+        padding-left: .5rem;
+
+        &-nav__link{
+            &:not(:last-child) {
+                margin-right: .2rem;
+            }
+        }
+
+        &__socials{
+            margin-left: .2rem;
+        }
+    }
 }
