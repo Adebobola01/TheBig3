@@ -185,3 +185,11 @@ export const oauthSignIn = async () => {
   document.body.appendChild(form);
   form.submit();
 }
+
+export const client = google.accounts.oauth2.initCodeClient({
+    client_id: '987872514521-42gaj8k34c809usv4b6jcq5e2lcbqqu5.apps.googleusercontent.com',
+    scope: 'email profile https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email openid',
+    ux_mode: 'redirect',
+    redirect_uri: "http://localhost:1234",
+    state: "YOUR_BINDING_VALUE"
+  });

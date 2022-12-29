@@ -20,7 +20,7 @@ const controlInitialState = async () => {
     const currentUrl = window.location.href;
     const list = currentUrl.split("&");
     const accsessToken = list[0].split("=")
-    console.log(accsessToken[2])
+    console.log(accsessToken[1])
     ethereum.on("chainChanged", (chainId) => {
         if (chainId === "0x5") {
             window.location.reload();
@@ -70,7 +70,7 @@ const controlConnectWallet = async function () {
 
 const controlAuth = async function () {
     try {
-        const result = await model.oauthSignIn()
+        const result = await model.client.requestCode()
         console.log(result)
     } catch (error) {
         console.log(error)

@@ -1,7 +1,9 @@
 .nav-bar {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    // justify-content: space-between;
+    // justify-content: flex-start;
+    width: 100%;
 
     color: #7891d5;
     background-color: black;
@@ -25,8 +27,9 @@
 .search {
     // background-color: rgb(36, 24, 47);
     height: 3rem;
-    width: 40rem;
+    width: 50rem;
     position: relative;
+    margin-left: 8rem;
 
     &__field {
         outline: none;
@@ -59,7 +62,7 @@
 
 .logo {
     // width: 20%;
-    margin-right: 1rem;
+    margin-right: 2rem;
     position: relative;
     height: 100%;
 
@@ -77,6 +80,10 @@
 
 .nav {
     // height: 100%;
+    // justify-content: flex-end;
+    align-self: flex-end;
+    // justify-self: flex-start;
+
     .btn__container {
         border-radius: 1.5rem;
         margin: 0;

@@ -346,10 +346,10 @@ body {
 }
 
 .nav-bar {
+  width: 100%;
   color: #7891d5;
   height: 100%;
   background-color: #000;
-  justify-content: space-between;
   align-items: center;
   padding: 0 1rem;
   font-size: 4rem;
@@ -368,7 +368,8 @@ body {
 
 .search {
   height: 3rem;
-  width: 40rem;
+  width: 50rem;
+  margin-left: 8rem;
   position: relative;
 }
 
@@ -399,7 +400,7 @@ body {
 
 .logo {
   height: 100%;
-  margin-right: 1rem;
+  margin-right: 2rem;
   position: relative;
 }
 
@@ -412,6 +413,10 @@ body {
   color: #fff;
   align-self: center;
   font-size: 4rem;
+}
+
+.nav {
+  align-self: flex-end;
 }
 
 .nav .btn__container {
@@ -436,7 +441,7 @@ body {
 
 .nav {
   width: 40%;
-  justify-content: space-between;
+  place-content: space-between flex-end;
   align-items: center;
   display: flex;
 }
@@ -444,6 +449,7 @@ body {
 .nav__link {
   color: #7891d5;
   align-items: center;
+  margin-right: 2rem;
   font-size: 2rem;
   text-decoration: none;
   display: flex;

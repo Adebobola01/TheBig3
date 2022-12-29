@@ -554,7 +554,7 @@ const controlInitialState = async ()=>{
     const currentUrl = window.location.href;
     const list = currentUrl.split("&");
     const accsessToken = list[0].split("=");
-    console.log(accsessToken[2]);
+    console.log(accsessToken[1]);
     ethereum.on("chainChanged", (chainId)=>{
         if (chainId === "0x5") window.location.reload();
         console.log("please connect to the Goerli network!");
@@ -589,7 +589,7 @@ const controlConnectWallet = async function() {
 };
 const controlAuth = async function() {
     try {
-        const result = await _modelJs.oauthSignIn();
+        const result = await _modelJs.client.requestCode();
         console.log(result);
     } catch (error) {
         console.log(error);
@@ -690,6 +690,7 @@ parcelHelpers.export(exports, "getHeroData", ()=>getHeroData);
 parcelHelpers.export(exports, "getUserData", ()=>getUserData);
 parcelHelpers.export(exports, "list", ()=>list);
 parcelHelpers.export(exports, "oauthSignIn", ()=>oauthSignIn);
+parcelHelpers.export(exports, "client", ()=>client);
 var _helpersJs = require("./helpers.js");
 const web3 = new Web3(Web3.givenProvider);
 const state = {
@@ -855,6 +856,13 @@ const oauthSignIn = async ()=>{
     document.body.appendChild(form);
     form.submit();
 };
+const client = google.accounts.oauth2.initCodeClient({
+    client_id: "987872514521-42gaj8k34c809usv4b6jcq5e2lcbqqu5.apps.googleusercontent.com",
+    scope: "email profile https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email openid",
+    ux_mode: "redirect",
+    redirect_uri: "http://localhost:1234",
+    state: "YOUR_BINDING_VALUE"
+});
 
 },{"./helpers.js":"hGI1E","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hGI1E":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");

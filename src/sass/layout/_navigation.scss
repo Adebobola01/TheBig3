@@ -1,12 +1,15 @@
 .nav {
     width: 40%;
     display: flex;
-    justify-content: space-between;
+    // justify-content: space-between;
     align-items: center;
+    justify-content: flex-end;
+    align-content: space-between;
 }
 
 .nav__link {
     text-decoration: none;
+    margin-right: 2rem;
     color: #7891d5;
     display: flex;
     font-size: 2rem;
