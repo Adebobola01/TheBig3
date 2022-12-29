@@ -70,10 +70,11 @@
 @media (max-width: 600px) {
     .search{
         margin-left: 1rem;
+        margin-right: 1.6rem;
 
         &__field{
             font-size: 1.4rem;
-            padding-left: .5rem;
+            padding-left: 2rem;
         }
     }
 }
@@ -93,6 +94,12 @@
         font-size: 4rem;
         align-self: center;
         color: white;
+    }
+}
+
+@media (max-width: 500px) {
+    .logo{
+        margin-right: .5rem;
     }
 }
 
