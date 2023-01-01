@@ -186,10 +186,46 @@ export const oauthSignIn = async () => {
   form.submit();
 }
 
-export const client = google.accounts.oauth2.initCodeClient({
-    client_id: '987872514521-42gaj8k34c809usv4b6jcq5e2lcbqqu5.apps.googleusercontent.com',
-    scope: 'email profile https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email openid',
-    ux_mode: 'redirect',
-    redirect_uri: "http://localhost:1234",
-    state: "YOUR_BINDING_VALUE"
-  });
+// export const client = google.accounts.oauth2.initCodeClient({
+//     client_id: '987872514521-42gaj8k34c809usv4b6jcq5e2lcbqqu5.apps.googleusercontent.com',
+//     scope: 'email profile https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email openid',
+//     ux_mode: 'redirect',
+//     redirect_uri: "http://localhost:1234",
+//     state: "YOUR_BINDING_VALUE"
+//   });
+
+export const googleAuth = async () => {
+    const result = await fetch("http://localhost:5077/api/auth/getAuthUrl", {
+    // const result = await fetch("http://localhost:3000/getUrl", {
+
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            authType: "login"
+        }),
+    });
+    const response = await result.json()
+    const authUrl = response.urlAuth;
+    window.location.href = authUrl;
+}
+
+export const googleCode = async () => {
+    const code = state.authCode;
+    const result2 = await fetch("http://localhost:5077/api/auth/login", {
+    // const result2 = await fetch("http://localhost:3000/googleCode", {
+
+        method: "POST",
+        headers: {
+            // Authorization: "Bearer " + getToken(),
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            code: code
+        }),
+    });
+    
+    console.log(await result2.json())
+    
+}

@@ -17,10 +17,14 @@ if (module.hot) {
 }
 
 const controlInitialState = async () => {
-    const currentUrl = window.location.href;
-    const list = currentUrl.split("&");
-    const accsessToken = list[0].split("=")
-    console.log(accsessToken[1])
+    const urlSearchParams = new URLSearchParams(window.location.search);
+    const params = Object.fromEntries(urlSearchParams.entries());
+    if (params.code) {
+        model.state.authCode = params.code;
+        const authType = localStorage.getItem("authType");
+        console.log(authType)
+        model.googleCode()
+    }
     ethereum.on("chainChanged", (chainId) => {
         if (chainId === "0x5") {
             window.location.reload();
@@ -70,7 +74,8 @@ const controlConnectWallet = async function () {
 
 const controlAuth = async function () {
     try {
-        const result = await model.client.requestCode()
+        localStorage.setItem("authType", "login")
+        const result = await model.googleAuth();
         console.log(result)
     } catch (error) {
         console.log(error)

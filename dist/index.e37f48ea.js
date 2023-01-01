@@ -551,10 +551,14 @@ const address = localStorage.getItem("address");
 ///initial state
 if (module.hot) module.hot.accept();
 const controlInitialState = async ()=>{
-    const currentUrl = window.location.href;
-    const list = currentUrl.split("&");
-    const accsessToken = list[0].split("=");
-    console.log(accsessToken[1]);
+    const urlSearchParams = new URLSearchParams(window.location.search);
+    const params = Object.fromEntries(urlSearchParams.entries());
+    if (params.code) {
+        _modelJs.state.authCode = params.code;
+        const authType = localStorage.getItem("authType");
+        console.log(authType);
+        _modelJs.googleCode();
+    }
     ethereum.on("chainChanged", (chainId)=>{
         if (chainId === "0x5") window.location.reload();
         console.log("please connect to the Goerli network!");
@@ -589,7 +593,8 @@ const controlConnectWallet = async function() {
 };
 const controlAuth = async function() {
     try {
-        const result = await _modelJs.client.requestCode();
+        localStorage.setItem("authType", "login");
+        const result = await _modelJs.googleAuth();
         console.log(result);
     } catch (error) {
         console.log(error);
@@ -690,7 +695,8 @@ parcelHelpers.export(exports, "getHeroData", ()=>getHeroData);
 parcelHelpers.export(exports, "getUserData", ()=>getUserData);
 parcelHelpers.export(exports, "list", ()=>list);
 parcelHelpers.export(exports, "oauthSignIn", ()=>oauthSignIn);
-parcelHelpers.export(exports, "client", ()=>client);
+parcelHelpers.export(exports, "googleAuth", ()=>googleAuth);
+parcelHelpers.export(exports, "googleCode", ()=>googleCode);
 var _helpersJs = require("./helpers.js");
 const web3 = new Web3(Web3.givenProvider);
 const state = {
@@ -856,13 +862,36 @@ const oauthSignIn = async ()=>{
     document.body.appendChild(form);
     form.submit();
 };
-const client = google.accounts.oauth2.initCodeClient({
-    client_id: "987872514521-42gaj8k34c809usv4b6jcq5e2lcbqqu5.apps.googleusercontent.com",
-    scope: "email profile https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email openid",
-    ux_mode: "redirect",
-    redirect_uri: "http://localhost:1234",
-    state: "YOUR_BINDING_VALUE"
-});
+const googleAuth = async ()=>{
+    const result = await fetch("http://localhost:5077/api/auth/getAuthUrl", {
+        // const result = await fetch("http://localhost:3000/getUrl", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            authType: "login"
+        })
+    });
+    const response = await result.json();
+    const authUrl = response.urlAuth;
+    window.location.href = authUrl;
+};
+const googleCode = async ()=>{
+    const code = state.authCode;
+    const result2 = await fetch("http://localhost:5077/api/auth/login", {
+        // const result2 = await fetch("http://localhost:3000/googleCode", {
+        method: "POST",
+        headers: {
+            // Authorization: "Bearer " + getToken(),
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            code: code
+        })
+    });
+    console.log(await result2.json());
+};
 
 },{"./helpers.js":"hGI1E","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hGI1E":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -912,7 +941,8 @@ var _viewJsDefault = parcelHelpers.interopDefault(_viewJs);
 class WalletView extends (0, _viewJsDefault.default) {
     _parentElement = document.querySelector(".wallets");
     metaWallet = document.querySelector(".metamask__btn");
-    connectBtn = document.querySelector(".connect__wallet--btn");
+    connectBtn = document.querySelectorAll(".connect__wallet--btn");
+    // connectBtn2 = document.querySelector(".mobile__connect")
     walletContainer = document.querySelector(".wallet__container");
     backdrop = document.querySelector(".backdrop");
     btnContainer = document.querySelector(".btn__container");
@@ -930,9 +960,14 @@ class WalletView extends (0, _viewJsDefault.default) {
     //     this.walletContainer.classList.
     // }
     WalletsHandler(handler1, handler2, handler3) {
-        this.connectBtn.addEventListener("click", function() {
-            handler1();
+        this.connectBtn.forEach((btn)=>{
+            btn.addEventListener("click", function() {
+                handler1();
+            });
         });
+        // this.connectBtn2.add("click", function () {
+        //     handler1();
+        // })
         this.metaWallet.addEventListener("click", function() {
             handler2();
         });

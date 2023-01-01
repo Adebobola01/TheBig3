@@ -3,11 +3,12 @@
     left: 50%;
     top: 50%;
     opacity: 1;
-    transform: translateY(-100vh) translate(-50%, -50%);
+    transform: translateY(-1000px) translate(-50%, -50%);
     background-color: rgb(22 21 34);
     color: aliceblue;
     height: 30rem;
     width: 40rem;
+    font-size: 4rem;
     z-index: 101;
     padding: 2rem;
     border-radius: 1rem;
@@ -43,4 +44,21 @@
 
 .metamask__login {
     display: flex;
+}
+
+@media (max-width: 400px){
+    .wallet__container{
+        width: 30rem;
+        height: 30rem;
+    }
+    .wallet__name{
+        width: auto
+    }
+}
+
+@media (max-width: 310px){
+    .wallet__container{
+        width: 25rem;
+        height: 26rem;
+    }
 }

@@ -26,6 +26,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 0.8rem 3rem;
+    font-size: 2.4rem;
     border: 0px solid rgba(9, 147, 236, 0.5);
     border-radius: 0.5rem;
     border-width: 1px;
@@ -71,6 +72,7 @@
     background: linear-gradient(to right, #db469f, #7891d5, #db469f);
     background-position: 0% 50%;
     background-size: 150% 100%;
+    justify-self: flex-end;
 
     &:hover {
         animation: gradient 1.5s forwards;
@@ -107,6 +109,7 @@
     vertical-align: middle;
     margin-left: .5rem;
     padding: 0;
+    display: none;
 }
 .toggle-button:focus {
     outline: none;
@@ -118,4 +121,26 @@
     display: block;
     margin: 0.6rem 0;
 
+}
+
+@media (max-width: 1000px){
+    .toggle-button{
+        display: block;
+    }
+}
+
+@media (max-width: 800px){
+    .toggle-button{
+        margin-left: .8rem;
+    }
+}
+
+@media (max-width: 400px){
+    .wallet__btn{
+        width: 100%;
+        padding: .8rem 1rem;
+    }
+    .toggle-button{
+        margin-left: .9rem;
+    }
 }

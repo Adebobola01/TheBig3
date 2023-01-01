@@ -52,6 +52,7 @@
     font-family: "Nunito", sans-serif;
     text-align: center;
     margin: 0;
+    font-size: 1rem;
 }
 
 .dev {
@@ -113,7 +114,7 @@
 
 @media (max-width: 400px) {
     .footer{
-        padding-left: 0;
+        padding-left: 1rem;
 
         &__container{
             padding: .5rem;
@@ -127,6 +128,17 @@
 
         &__socials{
             margin-left: .2rem;
+        }
+    }
+}
+
+@media (max-width: 345px){
+    .footer{
+        padding-left: .3rem;
+        font-size: .4rem;
+
+        &__socials{
+            width: 7rem;
         }
     }
 }

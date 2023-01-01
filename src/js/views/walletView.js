@@ -3,7 +3,8 @@ import View from "./view.js";
 class WalletView extends View {
     _parentElement = document.querySelector(".wallets");
     metaWallet = document.querySelector(".metamask__btn");
-    connectBtn = document.querySelector(".connect__wallet--btn");
+    connectBtn = document.querySelectorAll(".connect__wallet--btn");
+    // connectBtn2 = document.querySelector(".mobile__connect")
     walletContainer = document.querySelector(".wallet__container");
     backdrop = document.querySelector(".backdrop");
     btnContainer = document.querySelector(".btn__container");
@@ -24,9 +25,14 @@ class WalletView extends View {
     // }
 
     WalletsHandler(handler1, handler2,handler3) {
-        this.connectBtn.addEventListener("click", function () {
+        this.connectBtn.forEach(btn => {
+            btn.addEventListener("click", function () {
             handler1();
+        })
         });
+        // this.connectBtn2.add("click", function () {
+        //     handler1();
+        // })
         this.metaWallet.addEventListener("click", function () {
             handler2();
         });
