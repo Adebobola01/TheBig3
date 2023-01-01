@@ -4,6 +4,7 @@ import heroView from "./views/heroView.js";
 import profileView from "./views/profileView.js";
 import exploreView from "./views/exploreView.js";
 import detailsView from "./views/detailsView.js";
+import headerView from "./views/headerView.js";
 import * as utils from "./helpers.js";
 
 const token = localStorage.getItem("token");
@@ -156,11 +157,14 @@ const controlProfilePreview = () => {
 }
 
 const controlList = async () => {
-    console.log(model.state);
     const listValues = profileView.getListingDetails();
     await model.list(listValues);
     profileView.openListContainer();
 };
+
+const controlSidebar = () => {
+    // headerView.sidebarHandler
+}
 
 const init = function () {
     controlInitialState();
@@ -175,6 +179,7 @@ const init = function () {
     profileView.showListHandler(controlShowList);
     profileView.listNFT(controlList);
     profileView.closeListHandler(controlCloseList);
+    headerView.sidebarHandler(controlSidebar)
 };
 
 init();

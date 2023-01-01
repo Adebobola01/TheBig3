@@ -544,6 +544,8 @@ var _exploreViewJs = require("./views/exploreView.js");
 var _exploreViewJsDefault = parcelHelpers.interopDefault(_exploreViewJs);
 var _detailsViewJs = require("./views/detailsView.js");
 var _detailsViewJsDefault = parcelHelpers.interopDefault(_detailsViewJs);
+var _headerViewJs = require("./views/headerView.js");
+var _headerViewJsDefault = parcelHelpers.interopDefault(_headerViewJs);
 var _helpersJs = require("./helpers.js");
 const token = localStorage.getItem("token");
 const expiryDate = localStorage.getItem("expiryDate");
@@ -661,10 +663,12 @@ const controlProfilePreview = ()=>{
     (0, _profileViewJsDefault.default).changePreview();
 };
 const controlList = async ()=>{
-    console.log(_modelJs.state);
     const listValues = (0, _profileViewJsDefault.default).getListingDetails();
     await _modelJs.list(listValues);
     (0, _profileViewJsDefault.default).openListContainer();
+};
+const controlSidebar = ()=>{
+// headerView.sidebarHandler
 };
 const init = function() {
     controlInitialState();
@@ -679,10 +683,11 @@ const init = function() {
     (0, _profileViewJsDefault.default).showListHandler(controlShowList);
     (0, _profileViewJsDefault.default).listNFT(controlList);
     (0, _profileViewJsDefault.default).closeListHandler(controlCloseList);
+    (0, _headerViewJsDefault.default).sidebarHandler(controlSidebar);
 };
 init();
 
-},{"./model.js":"Y4A21","./views/walletView.js":"3S0AV","./views/heroView.js":"8UYUH","./views/profileView.js":"8Hi5l","./views/exploreView.js":"dQpO2","./views/detailsView.js":"25RBo","./helpers.js":"hGI1E","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"Y4A21":[function(require,module,exports) {
+},{"./model.js":"Y4A21","./views/walletView.js":"3S0AV","./views/heroView.js":"8UYUH","./views/profileView.js":"8Hi5l","./views/exploreView.js":"dQpO2","./views/detailsView.js":"25RBo","./helpers.js":"hGI1E","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./views/headerView.js":"1wq1u"}],"Y4A21":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "state", ()=>state);
@@ -1865,6 +1870,19 @@ class detailsView extends (0, _viewJsDefault.default) {
 }
 exports.default = new detailsView();
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../../../static/images/uzumakiFamily.png":"lYckW","../../../static/images/itachi.png":"4EBs5","../../../static/images/madara.png":"5ehne","./view.js":"bWlJ9"}]},["fA0o9","aenu9"], "aenu9", "parcelRequireb9b7")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../../../static/images/uzumakiFamily.png":"lYckW","../../../static/images/itachi.png":"4EBs5","../../../static/images/madara.png":"5ehne","./view.js":"bWlJ9"}],"1wq1u":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _viewJs = require("./view.js");
+var _viewJsDefault = parcelHelpers.interopDefault(_viewJs);
+class headerView extends (0, _viewJsDefault.default) {
+    toggleBtn = document.querySelector(".toggle-button");
+    sidebarHandler(handler) {
+        this.toggleBtn.addEventListener("click", handler);
+    }
+}
+exports.default = new headerView();
+
+},{"./view.js":"bWlJ9","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["fA0o9","aenu9"], "aenu9", "parcelRequireb9b7")
 
 //# sourceMappingURL=index.e37f48ea.js.map
