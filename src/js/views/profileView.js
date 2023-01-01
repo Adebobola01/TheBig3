@@ -6,7 +6,7 @@ import ethurl from "../../../static/images/ethereum-eth-logo.svg";
 
 class profileView extends View {
     _parentElement = document.querySelector(".main");
-    profileLink = document.querySelector(".profile-link");
+    profileLink = document.querySelectorAll(".profile-link");
     contentBody = document.querySelector(".profile__user--body");
     container = document.querySelector(".profile__user");
     listContainer = document.querySelector(".list__container");
@@ -20,8 +20,12 @@ class profileView extends View {
     contractAddress;
 
     profileHandler(handler) {
-        this.profileLink.classList.add("active");
-        this.profileLink.addEventListener("click", handler);
+        // console.log(this.profileLink[0])
+        this.profileLink[0].classList.add("active");
+        this.profileLink.forEach(btn => {
+            btn.addEventListener("click", handler);
+        })
+        // this.profileLink.addEventListener("click", handler)
     }
 
     getListingDetails() {

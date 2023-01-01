@@ -21,6 +21,15 @@
     }
 }
 
+@keyframes sidebar {
+    0% {
+        transform: translateX(100vw);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
 @keyframes rotateNFT {
     0% {
         transform: rotateY(0);

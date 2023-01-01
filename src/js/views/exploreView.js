@@ -5,10 +5,11 @@ import itachiUrl from "../../../static/images/itachi.png";
 class exploreView extends View {
     _parentElement = document.querySelector(".main");
     exploreCta = document.querySelector(".explore-cta");
-    exploreLink = document.querySelector(".explore-link");
+    exploreLink = document.querySelectorAll(".explore-link");
     exploreHandler(handler) {
-        this.exploreLink.addEventListener("click", handler);
-        this.exploreCta.addEventListener("click", handler);
+        this.exploreLink.forEach(btn => {
+            btn.addEventListener("click", handler);
+        })
     }
 
     detailViewHandler(handler) {

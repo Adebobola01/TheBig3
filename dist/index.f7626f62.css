@@ -44,11 +44,6 @@ body {
   transform: translateY(-200vh);
 }
 
-.open-wallets {
-  animation: 1s forwards wallet;
-  opacity: 1 !important;
-}
-
 .open {
   opacity: 1 !important;
   transform: translateY(0) !important;
@@ -93,6 +88,16 @@ body {
   100% {
     background-position: 100% 150%;
     transform: translateY(-3px);
+  }
+}
+
+@keyframes sidebar {
+  0% {
+    transform: translateX(100vw);
+  }
+
+  100% {
+    transform: translateX(0);
   }
 }
 
@@ -288,6 +293,11 @@ body {
 
 .metamask__login {
   display: flex;
+}
+
+.open-wallets {
+  animation: 1s forwards wallet;
+  opacity: 1 !important;
 }
 
 @media (max-width: 400px) {
@@ -1330,6 +1340,7 @@ body {
 .sidebar {
   height: 100vh;
   width: 30rem;
+  opacity: 0;
   z-index: 100;
   background-color: #38364b;
   flex-direction: column;
@@ -1339,6 +1350,7 @@ body {
   position: absolute;
   top: 0;
   right: 0;
+  transform: translateX(100vw);
 }
 
 .sidebar .nav__link {
@@ -1356,6 +1368,11 @@ body {
 
 .sidebar .nav__link:hover {
   border: 1px solid #af2f7cb3;
+}
+
+.open-sidebar {
+  animation: 1s forwards sidebar;
+  opacity: 1 !important;
 }
 
 /*# sourceMappingURL=index.f7626f62.css.map */

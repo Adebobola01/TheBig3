@@ -4,6 +4,8 @@
     background-color: aqua;
     position: absolute;
     right: 0;
+    opacity: 0;
+    transform: translateX(100vw);
     top: 0;
     z-index: 100;
     display: flex;
@@ -28,4 +30,9 @@
             border: 1px solid #af2f7cb3;
         }
     }
+}
+
+.open-sidebar {
+    opacity: 1 !important;
+    animation: sidebar 1s forwards;
 }

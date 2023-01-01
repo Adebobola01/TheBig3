@@ -629,6 +629,7 @@ const controlProfile = async function() {
 };
 const controlExplore = async function() {
     try {
+        console.log("here");
         (0, _exploreViewJsDefault.default).render();
     } catch (error) {
         console.log(error);
@@ -668,7 +669,7 @@ const controlList = async ()=>{
     (0, _profileViewJsDefault.default).openListContainer();
 };
 const controlSidebar = ()=>{
-// headerView.sidebarHandler
+    (0, _headerViewJsDefault.default).opensidebar();
 };
 const init = function() {
     controlInitialState();
@@ -684,6 +685,7 @@ const init = function() {
     (0, _profileViewJsDefault.default).listNFT(controlList);
     (0, _profileViewJsDefault.default).closeListHandler(controlCloseList);
     (0, _headerViewJsDefault.default).sidebarHandler(controlSidebar);
+    (0, _headerViewJsDefault.default).exploreHandler(controlExplore);
 };
 init();
 
@@ -1117,7 +1119,7 @@ var _ethereumEthLogoSvg = require("../../../static/images/ethereum-eth-logo.svg"
 var _ethereumEthLogoSvgDefault = parcelHelpers.interopDefault(_ethereumEthLogoSvg);
 class profileView extends (0, _viewJsDefault.default) {
     _parentElement = document.querySelector(".main");
-    profileLink = document.querySelector(".profile-link");
+    profileLink = document.querySelectorAll(".profile-link");
     contentBody = document.querySelector(".profile__user--body");
     container = document.querySelector(".profile__user");
     listContainer = document.querySelector(".list__container");
@@ -1129,8 +1131,12 @@ class profileView extends (0, _viewJsDefault.default) {
     name;
     contractAddress;
     profileHandler(handler) {
-        this.profileLink.classList.add("active");
-        this.profileLink.addEventListener("click", handler);
+        // console.log(this.profileLink[0])
+        this.profileLink[0].classList.add("active");
+        this.profileLink.forEach((btn)=>{
+            btn.addEventListener("click", handler);
+        });
+    // this.profileLink.addEventListener("click", handler)
     }
     getListingDetails() {
         const price = document.querySelector(".list__price--input").value;
@@ -1344,10 +1350,11 @@ var _itachiPngDefault = parcelHelpers.interopDefault(_itachiPng);
 class exploreView extends (0, _viewJsDefault.default) {
     _parentElement = document.querySelector(".main");
     exploreCta = document.querySelector(".explore-cta");
-    exploreLink = document.querySelector(".explore-link");
+    exploreLink = document.querySelectorAll(".explore-link");
     exploreHandler(handler) {
-        this.exploreLink.addEventListener("click", handler);
-        this.exploreCta.addEventListener("click", handler);
+        this.exploreLink.forEach((btn)=>{
+            btn.addEventListener("click", handler);
+        });
     }
     detailViewHandler(handler) {
         this._parentElement.addEventListener("click", (e)=>{
@@ -1877,8 +1884,16 @@ var _viewJs = require("./view.js");
 var _viewJsDefault = parcelHelpers.interopDefault(_viewJs);
 class headerView extends (0, _viewJsDefault.default) {
     toggleBtn = document.querySelector(".toggle-button");
+    sidebar = document.querySelector(".sidebar");
+    exploreLink = document.querySelector(".explore-link");
+    exploreHandler(handler) {
+        this.exploreLink.addEventListener("click", handler);
+    }
     sidebarHandler(handler) {
         this.toggleBtn.addEventListener("click", handler);
+    }
+    opensidebar() {
+        this.sidebar.classList.toggle("open-sidebar");
     }
 }
 exports.default = new headerView();

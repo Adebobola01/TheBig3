@@ -46,6 +46,11 @@
     display: flex;
 }
 
+.open-wallets {
+    opacity: 1 !important;
+    animation: wallet 1s forwards;
+}
+
 @media (max-width: 400px){
     .wallet__container{
         width: 30rem;

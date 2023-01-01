@@ -117,6 +117,7 @@ const controlProfile = async function () {
 
 const controlExplore = async function () {
     try {
+        console.log("here")
         exploreView.render();
     } catch (error) {
         console.log(error);
@@ -163,7 +164,7 @@ const controlList = async () => {
 };
 
 const controlSidebar = () => {
-    // headerView.sidebarHandler
+    headerView.opensidebar()
 }
 
 const init = function () {
@@ -180,6 +181,7 @@ const init = function () {
     profileView.listNFT(controlList);
     profileView.closeListHandler(controlCloseList);
     headerView.sidebarHandler(controlSidebar)
+    headerView.exploreHandler(controlExplore)
 };
 
 init();
