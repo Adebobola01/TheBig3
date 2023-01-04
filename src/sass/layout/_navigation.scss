@@ -1,18 +1,54 @@
 .nav {
     display: flex;
     align-items: center;
+    flex-grow: 1;
+    justify-content: space-between;
+}
+
+.addr-container{
+    font-size: 2rem;
+    margin-left: 1rem;
 }
 
 .nav__link {
     text-decoration: none;
-    margin-right: 2rem;
     color: #7891d5;
     display: flex;
     font-size: 2rem;
     align-items: center;
+    width: auto;
     // width: 8rem;
     &:hover {
         color: rgb(133, 133, 133);
+    }
+    margin-right: 1rem
+}
+
+@media (max-width: 1200px){
+    .addr-container{
+        margin-left: 0;
+    }
+
+    .nav__link{
+        &:last-child{
+            width: 6rem;
+        }
+    }
+}
+
+@media (max-width: 1060px){
+    .nav__link{
+        font-size: 1.8rem;
+
+        &:last-child{
+            &:last-child{
+                margin-right: 0;
+            }
+        }
+    }
+
+    .addr-container{
+        font-size: 1.8rem;
     }
 }
 

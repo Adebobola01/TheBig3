@@ -11,6 +11,7 @@ class WalletView extends View {
     logoutBtn = document.querySelector(".logout-btn");
     addrContainer = document.querySelector(".addr-container");
     authBtn = document.querySelector(".walletConnect__btn")
+    mobileConnect = document.querySelector(".mobile__connect")
 
     toggle() {
         this.walletContainer.classList.toggle("open-wallets");
@@ -48,8 +49,9 @@ class WalletView extends View {
         console.log("addr disp");
         if (address && isConnected) {
             console.log("dis addr2");
-            this.connectBtn.classList.add("hidden");
+            this.connectBtn[0].classList.add("hidden");
             this.btnContainer.classList.add("connected");
+            this.mobileConnect.classList.add("hidden")
             this.addrContainer.textContent = `${address.slice(
                 0,
                 3
@@ -61,7 +63,7 @@ class WalletView extends View {
     displayConnectBtn() {
         this.addrContainer.textContent = "";
         this.btnContainer.classList.remove("connected");
-        this.connectBtn.classList.remove("hidden");
+        this.connectBtn[0].classList.remove("hidden");
         this.logoutBtn.classList.add("hidden");
     }
 }

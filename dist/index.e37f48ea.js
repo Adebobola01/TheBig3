@@ -556,10 +556,11 @@ const controlInitialState = async ()=>{
     const urlSearchParams = new URLSearchParams(window.location.search);
     const params = Object.fromEntries(urlSearchParams.entries());
     if (params.code) {
+        console.log(params.code);
         _modelJs.state.authCode = params.code;
         const authType = localStorage.getItem("authType");
-        console.log(authType);
-        _modelJs.googleCode();
+    // console.log(authType)
+    // model.googleCode()
     }
     ethereum.on("chainChanged", (chainId)=>{
         if (chainId === "0x5") window.location.reload();
@@ -870,14 +871,14 @@ const oauthSignIn = async ()=>{
     form.submit();
 };
 const googleAuth = async ()=>{
-    const result = await fetch("http://localhost:5077/api/auth/getAuthUrl", {
+    const result = await fetch("http://34.195.230.138:3000/api/auth/getAuthUrl", {
         // const result = await fetch("http://localhost:3000/getUrl", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            authType: "login"
+            authType: "signup"
         })
     });
     const response = await result.json();
@@ -886,7 +887,7 @@ const googleAuth = async ()=>{
 };
 const googleCode = async ()=>{
     const code = state.authCode;
-    const result2 = await fetch("http://localhost:5077/api/auth/login", {
+    const result2 = await fetch("http://34.195.230.138:3000/api/auth/login", {
         // const result2 = await fetch("http://localhost:3000/googleCode", {
         method: "POST",
         headers: {
@@ -956,6 +957,7 @@ class WalletView extends (0, _viewJsDefault.default) {
     logoutBtn = document.querySelector(".logout-btn");
     addrContainer = document.querySelector(".addr-container");
     authBtn = document.querySelector(".walletConnect__btn");
+    mobileConnect = document.querySelector(".mobile__connect");
     toggle() {
         this.walletContainer.classList.toggle("open-wallets");
         this.backdrop.classList.toggle("open");
@@ -989,8 +991,9 @@ class WalletView extends (0, _viewJsDefault.default) {
         console.log("addr disp");
         if (address && isConnected) {
             console.log("dis addr2");
-            this.connectBtn.classList.add("hidden");
+            this.connectBtn[0].classList.add("hidden");
             this.btnContainer.classList.add("connected");
+            this.mobileConnect.classList.add("hidden");
             this.addrContainer.textContent = `${address.slice(0, 3)}...${address.slice(-4)}`;
             this.logoutBtn.classList.remove("hidden");
         }
@@ -998,7 +1001,7 @@ class WalletView extends (0, _viewJsDefault.default) {
     displayConnectBtn() {
         this.addrContainer.textContent = "";
         this.btnContainer.classList.remove("connected");
-        this.connectBtn.classList.remove("hidden");
+        this.connectBtn[0].classList.remove("hidden");
         this.logoutBtn.classList.add("hidden");
     }
 }

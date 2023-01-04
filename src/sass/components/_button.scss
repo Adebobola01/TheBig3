@@ -93,6 +93,7 @@
     cursor: pointer;
     font-weight: 700;
     font-size: 1rem;
+    margin-left: 2rem;
 
     &:hover {
         background-color: #db469f;
@@ -107,9 +108,10 @@
     border: none;
     cursor: pointer;
     vertical-align: middle;
-    margin-left: .5rem;
+    margin-left: 1rem;
     padding: 0;
     display: none;
+    order: 1;
 }
 .toggle-button:focus {
     outline: none;

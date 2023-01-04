@@ -195,7 +195,7 @@ export const oauthSignIn = async () => {
 //   });
 
 export const googleAuth = async () => {
-    const result = await fetch("http://localhost:5077/api/auth/getAuthUrl", {
+    const result = await fetch("http://34.195.230.138:3000/api/auth/getAuthUrl", {
     // const result = await fetch("http://localhost:3000/getUrl", {
 
         method: "POST",
@@ -203,7 +203,7 @@ export const googleAuth = async () => {
             "Content-Type": "application/json",
         },
         body: JSON.stringify({
-            authType: "login"
+            authType: "signup"
         }),
     });
     const response = await result.json()
@@ -213,7 +213,7 @@ export const googleAuth = async () => {
 
 export const googleCode = async () => {
     const code = state.authCode;
-    const result2 = await fetch("http://localhost:5077/api/auth/login", {
+    const result2 = await fetch("http://34.195.230.138:3000/api/auth/login", {
     // const result2 = await fetch("http://localhost:3000/googleCode", {
 
         method: "POST",

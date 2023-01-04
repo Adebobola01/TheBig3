@@ -192,6 +192,7 @@ body {
   cursor: pointer;
   background-color: #0000;
   border: 2px solid #db469f;
+  margin-left: 2rem;
   font-size: 1rem;
   font-weight: 700;
 }
@@ -207,7 +208,8 @@ body {
   vertical-align: middle;
   background: none;
   border: none;
-  margin-left: .5rem;
+  order: 1;
+  margin-left: 1rem;
   padding: 0;
   display: none;
 }
@@ -447,9 +449,9 @@ body {
 
 .search {
   height: 3rem;
-  width: 72rem;
+  width: 62rem;
   margin-left: 4rem;
-  margin-right: 4rem;
+  margin-right: 2rem;
   position: relative;
 }
 
@@ -530,6 +532,10 @@ body {
   .search {
     margin-left: 0;
     margin-right: 3rem;
+  }
+
+  .mobile__connect {
+    display: none;
   }
 }
 
@@ -612,14 +618,22 @@ body {
 }
 
 .nav {
+  flex-grow: 1;
+  justify-content: space-between;
   align-items: center;
   display: flex;
 }
 
+.addr-container {
+  margin-left: 1rem;
+  font-size: 2rem;
+}
+
 .nav__link {
   color: #7891d5;
+  width: auto;
   align-items: center;
-  margin-right: 2rem;
+  margin-right: 1rem;
   font-size: 2rem;
   text-decoration: none;
   display: flex;
@@ -627,6 +641,30 @@ body {
 
 .nav__link:hover {
   color: #858585;
+}
+
+@media (max-width: 1200px) {
+  .addr-container {
+    margin-left: 0;
+  }
+
+  .nav__link:last-child {
+    width: 6rem;
+  }
+}
+
+@media (max-width: 1060px) {
+  .nav__link {
+    font-size: 1.8rem;
+  }
+
+  .nav__link:last-child:last-child {
+    margin-right: 0;
+  }
+
+  .addr-container {
+    font-size: 1.8rem;
+  }
 }
 
 @media (max-width: 1000px) {

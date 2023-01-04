@@ -24,10 +24,10 @@
 .search {
     // background-color: rgb(36, 24, 47);
     height: 3rem;
-    width: 72rem;
+    width: 62rem;
     position: relative;
     margin-left: 4rem;
-    margin-right: 4rem;
+    margin-right: 2rem;
 
     &__field {
         outline: none;
@@ -127,10 +127,17 @@
 .active {
 }
 
+@media (max-width: 1060px){
+
+}
+
 @media (max-width: 1000px){
     .search{
         margin-left: 0;
         margin-right: 3rem;
+    }
+    .mobile__connect{
+        display: none;
     }
 }
 
