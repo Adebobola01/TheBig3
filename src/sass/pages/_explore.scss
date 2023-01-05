@@ -34,3 +34,11 @@
         }
     }
 }
+
+@media (max-width: 1000px){
+    .explore{
+        &__main{
+            // justify-content: start;
+        }
+    }
+}
