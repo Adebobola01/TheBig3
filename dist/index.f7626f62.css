@@ -422,6 +422,31 @@ body {
   }
 }
 
+@media (max-width: 665px) {
+  .explore__nft--container {
+    width: 29rem;
+  }
+}
+
+@media (max-width: 650px) {
+  .explore__nft--container {
+    width: 26rem;
+  }
+}
+
+@media (max-width: 585px) {
+  .explore__nft--container {
+    width: 35rem;
+    height: 50rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .explore__nft--container {
+    width: 29rem;
+  }
+}
+
 .scroll-down {
   height: 4rem;
   width: 4rem;
