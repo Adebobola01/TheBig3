@@ -22,3 +22,15 @@
         overflow-y: scroll;
     }
 }
+
+@media (max-width: 1330px){
+    .explore {
+        &__sort{
+            display: none;
+        }
+
+        &__main{
+            justify-content: center;
+        }
+    }
+}

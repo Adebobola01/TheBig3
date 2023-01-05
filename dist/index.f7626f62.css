@@ -1120,6 +1120,16 @@ body {
   overflow-y: scroll;
 }
 
+@media (max-width: 1330px) {
+  .explore__sort {
+    display: none;
+  }
+
+  .explore__main {
+    justify-content: center;
+  }
+}
+
 .nft {
   height: 100vh;
   display: flex;
