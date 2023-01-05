@@ -1007,7 +1007,8 @@ body {
   transition: all 1s;
   display: flex;
   position: absolute;
-  right: -30rem;
+  right: 0;
+  transform: translateX(1000px);
 }
 
 .list-close {
@@ -1137,7 +1138,7 @@ body {
 
 .open-list {
   opacity: 1;
-  right: 0;
+  transform: translateX(0);
 }
 
 .explore__container {
