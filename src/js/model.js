@@ -195,16 +195,16 @@ export const oauthSignIn = async () => {
 //   });
 
 export const googleAuth = async () => {
-    const result = await fetch("http://34.195.230.138:3000/api/auth/getAuthUrl", {
-    // const result = await fetch("http://localhost:3000/getUrl", {
+    // const result = await fetch("https:certgo.hng.tech/api/auth/getAuthUrl", {
+    const result = await fetch("http://localhost:3000/getUrl", {
 
-        method: "POST",
+        method: "GET",
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-            authType: "signup"
-        }),
+        // body: JSON.stringify({
+        //     authType: "signup"
+        // }),
     });
     const response = await result.json()
     const authUrl = response.urlAuth;
@@ -213,8 +213,8 @@ export const googleAuth = async () => {
 
 export const googleCode = async () => {
     const code = state.authCode;
-    const result2 = await fetch("http://34.195.230.138:3000/api/auth/login", {
-    // const result2 = await fetch("http://localhost:3000/googleCode", {
+    // const result2 = await fetch("http://34.195.230.138:3000/api/auth/login", {
+    const result2 = await fetch("http://localhost:3000/googleCode", {
 
         method: "POST",
         headers: {

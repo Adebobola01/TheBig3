@@ -1351,6 +1351,7 @@ body {
 
   .col-1-of-2:not(:last-child) {
     margin-right: 0;
+    display: none;
   }
 
   .section-hero {
