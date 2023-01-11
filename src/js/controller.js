@@ -118,7 +118,7 @@ const controlProfile = async function () {
 
 const controlExplore = async function () {
     try {
-        console.log("here")
+        headerView.toggleSidebar()
         exploreView.render();
     } catch (error) {
         console.log(error);

@@ -630,7 +630,7 @@ const controlProfile = async function() {
 };
 const controlExplore = async function() {
     try {
-        console.log("here");
+        (0, _headerViewJsDefault.default).toggleSidebar();
         (0, _exploreViewJsDefault.default).render();
     } catch (error) {
         console.log(error);
