@@ -1344,26 +1344,6 @@ body {
   margin-right: 10rem;
 }
 
-@media (max-width: 700px) {
-  .col-1-of-2 {
-    font-size: 10rem;
-  }
-
-  .col-1-of-2:not(:last-child) {
-    margin-right: 0;
-    display: none;
-  }
-
-  .section-hero {
-    height: 50rem;
-    padding: 5rem 0;
-  }
-
-  .hero__nft-container {
-    display: none;
-  }
-}
-
 .hero__nft-image {
   height: 70%;
   width: 100%;
@@ -1429,6 +1409,36 @@ body {
   width: 5rem;
   height: 5rem;
   border-radius: 50%;
+}
+
+@media (max-width: 900px) {
+  .section-hero {
+    padding-left: 10rem;
+  }
+
+  .col-1-of-2:not(:last-child) {
+    margin-right: 7rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .col-1-of-2 {
+    font-size: 10rem;
+  }
+
+  .col-1-of-2:not(:last-child) {
+    margin-right: 0;
+    display: none;
+  }
+
+  .section-hero {
+    height: 50rem;
+    padding: 5rem 0;
+  }
+
+  .hero__nft-container {
+    display: none;
+  }
 }
 
 .sidebar {
