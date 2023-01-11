@@ -33,7 +33,7 @@ body {
   display: none !important;
 }
 
-.backdrop {
+.backdrop, .backdrop2 {
   width: 100%;
   height: 100%;
   z-index: 100;
@@ -1435,7 +1435,7 @@ body {
   height: 100vh;
   width: 30rem;
   opacity: 0;
-  z-index: 100;
+  z-index: 101;
   background-color: #38364b;
   flex-direction: column;
   justify-content: flex-start;

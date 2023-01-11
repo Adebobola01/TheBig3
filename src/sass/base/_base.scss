@@ -59,6 +59,16 @@ body {
     opacity: 0;
     transform: translateY(-200vh);
 }
+.backdrop2{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 100;
+    background: rgba(0, 0, 0, 0.8);
+    display: block;
+    opacity: 0;
+    transform: translateY(-200vh);
+}
 
 // .wallets {
 //     height: auto;

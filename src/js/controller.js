@@ -165,7 +165,11 @@ const controlList = async () => {
 };
 
 const controlSidebar = () => {
-    headerView.opensidebar()
+    headerView.toggleSidebar()
+}
+
+const controlSidebarBackdrop = () => {
+    headerView.toggleSidebar()
 }
 
 const init = function () {
@@ -183,6 +187,7 @@ const init = function () {
     profileView.closeListHandler(controlCloseList);
     headerView.sidebarHandler(controlSidebar)
     headerView.exploreHandler(controlExplore)
+    headerView.sidebarBackdropHandler(controlSidebarBackdrop)
 };
 
 init();

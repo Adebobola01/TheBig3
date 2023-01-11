@@ -670,7 +670,10 @@ const controlList = async ()=>{
     (0, _profileViewJsDefault.default).openListContainer();
 };
 const controlSidebar = ()=>{
-    (0, _headerViewJsDefault.default).opensidebar();
+    (0, _headerViewJsDefault.default).toggleSidebar();
+};
+const controlSidebarBackdrop = ()=>{
+    (0, _headerViewJsDefault.default).toggleSidebar();
 };
 const init = function() {
     controlInitialState();
@@ -687,6 +690,7 @@ const init = function() {
     (0, _profileViewJsDefault.default).closeListHandler(controlCloseList);
     (0, _headerViewJsDefault.default).sidebarHandler(controlSidebar);
     (0, _headerViewJsDefault.default).exploreHandler(controlExplore);
+    (0, _headerViewJsDefault.default).sidebarBackdropHandler(controlSidebarBackdrop);
 };
 init();
 
@@ -1886,14 +1890,19 @@ class headerView extends (0, _viewJsDefault.default) {
     toggleBtn = document.querySelector(".toggle-button");
     sidebar = document.querySelector(".sidebar");
     exploreLink = document.querySelector(".explore-link");
+    sidebarBackdrop = document.querySelector(".backdrop2");
     exploreHandler(handler) {
         this.exploreLink.addEventListener("click", handler);
+    }
+    sidebarBackdropHandler(handler) {
+        this.sidebarBackdrop.addEventListener("click", handler);
     }
     sidebarHandler(handler) {
         this.toggleBtn.addEventListener("click", handler);
     }
-    opensidebar() {
+    toggleSidebar() {
         this.sidebar.classList.toggle("open-sidebar");
+        this.sidebarBackdrop.classList.toggle("open");
     }
 }
 exports.default = new headerView();
