@@ -1,18 +1,25 @@
 .sidebar{
+
+    &-container{
+        display: none;
+        transform: translateX(100vw);
+        position: absolute;
+        right: 0;
+        opacity: 0;
+        top: 0;  
+        height: auto;
+        width: auto; 
+        z-index: 101;
+    }
+
     height: 100vh;
     width: 30rem;
-    background-color: aqua;
-    position: absolute;
-    right: 0;
-    opacity: 0;
-    transform: translateX(100vw);
-    top: 0;
-    z-index: 101;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     background-color: #38364b;
+    position: relative;
 
     .nav__link{
         padding: 3rem;
@@ -35,4 +42,18 @@
 .open-sidebar {
     opacity: 1 !important;
     animation: sidebar 1s forwards;
+    display: block;
+}
+
+.close-sidebar {
+    width: 2rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    vertical-align: middle;
+    margin-left: 1rem;
+    padding: 0;
+    display: none;
+    order: 1;
+    position: absolute;
 }

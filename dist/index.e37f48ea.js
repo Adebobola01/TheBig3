@@ -1888,7 +1888,7 @@ var _viewJs = require("./view.js");
 var _viewJsDefault = parcelHelpers.interopDefault(_viewJs);
 class headerView extends (0, _viewJsDefault.default) {
     toggleBtn = document.querySelector(".toggle-button");
-    sidebar = document.querySelector(".sidebar");
+    sidebar = document.querySelector(".sidebar-container");
     exploreLink = document.querySelector(".explore-link");
     sidebarBackdrop = document.querySelector(".backdrop2");
     exploreHandler(handler) {

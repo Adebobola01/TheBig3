@@ -2,7 +2,7 @@ import View from "./view.js";
 
 class headerView extends View {
     toggleBtn = document.querySelector(".toggle-button");
-    sidebar = document.querySelector(".sidebar")
+    sidebar = document.querySelector(".sidebar-container")
     exploreLink = document.querySelector(".explore-link")
     sidebarBackdrop = document.querySelector(".backdrop2")
 
