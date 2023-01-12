@@ -184,7 +184,7 @@ const init = function () {
     controlProfilePreview()
     exploreView.exploreHandler(controlExplore, controlSidebarLinks);
     exploreView.detailViewHandler(controlDetailView);
-    profileView.profileHandler(controlProfile);
+    profileView.profileHandler(controlProfile, controlSidebarLinks);
     profileView.showListHandler(controlShowList);
     profileView.listNFT(controlList);
     profileView.closeListHandler(controlCloseList);

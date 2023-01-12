@@ -19,13 +19,16 @@ class profileView extends View {
     name;
     contractAddress;
 
-    profileHandler(handler) {
-        // console.log(this.profileLink[0])
+    profileHandler(handler, handler2) {
         this.profileLink[0].classList.add("active");
         this.profileLink.forEach(btn => {
-            btn.addEventListener("click", handler);
+            btn.addEventListener("click", () => {
+                if (btn.closest(".sidebar")) {
+                    handler2()
+                }
+                handler()
+            });
         })
-        // this.profileLink.addEventListener("click", handler)
     }
 
     getListingDetails() {

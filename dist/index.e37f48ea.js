@@ -686,7 +686,7 @@ const init = function() {
     controlProfilePreview();
     (0, _exploreViewJsDefault.default).exploreHandler(controlExplore, controlSidebarLinks);
     (0, _exploreViewJsDefault.default).detailViewHandler(controlDetailView);
-    (0, _profileViewJsDefault.default).profileHandler(controlProfile);
+    (0, _profileViewJsDefault.default).profileHandler(controlProfile, controlSidebarLinks);
     (0, _profileViewJsDefault.default).showListHandler(controlShowList);
     (0, _profileViewJsDefault.default).listNFT(controlList);
     (0, _profileViewJsDefault.default).closeListHandler(controlCloseList);
@@ -1109,13 +1109,14 @@ class profileView extends (0, _viewJsDefault.default) {
     imageUrl;
     name;
     contractAddress;
-    profileHandler(handler) {
-        // console.log(this.profileLink[0])
+    profileHandler(handler, handler2) {
         this.profileLink[0].classList.add("active");
         this.profileLink.forEach((btn)=>{
-            btn.addEventListener("click", handler);
+            btn.addEventListener("click", ()=>{
+                if (btn.closest(".sidebar")) handler2();
+                handler();
+            });
         });
-    // this.profileLink.addEventListener("click", handler)
     }
     getListingDetails() {
         const price = document.querySelector(".list__price--input").value;
@@ -1335,10 +1336,7 @@ class exploreView extends (0, _viewJsDefault.default) {
     exploreHandler(handler, handler2) {
         this.exploreLink.forEach((btn)=>{
             btn.addEventListener("click", ()=>{
-                if (btn.closest(".sidebar")) {
-                    console.log("here");
-                    handler2();
-                }
+                if (btn.closest(".sidebar")) handler2();
                 handler();
             });
         });
