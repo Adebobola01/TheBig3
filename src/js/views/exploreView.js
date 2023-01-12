@@ -6,9 +6,15 @@ class exploreView extends View {
     _parentElement = document.querySelector(".main");
     exploreCta = document.querySelector(".explore-cta");
     exploreLink = document.querySelectorAll(".explore-link");
-    exploreHandler(handler) {
+    exploreHandler(handler, handler2) {
         this.exploreLink.forEach(btn => {
-            btn.addEventListener("click", handler);
+            btn.addEventListener("click", () => {
+                if (btn.closest(".sidebar")) {
+                    console.log("here")
+                    handler2()
+                }
+                handler()
+            });
         })
     }
 

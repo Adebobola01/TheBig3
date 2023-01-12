@@ -60,6 +60,10 @@ const controlDisplayWallet = function () {
     }
 };
 
+const controlSidebarLinks = () => {
+    headerView.toggleSidebar()
+}
+
 const controlConnectWallet = async function () {
     try {
         await model.getUserAccount();
@@ -118,7 +122,6 @@ const controlProfile = async function () {
 
 const controlExplore = async function () {
     try {
-        headerView.toggleSidebar()
         exploreView.render();
     } catch (error) {
         console.log(error);
@@ -179,7 +182,7 @@ const init = function () {
     controlConnected();
     controlHero();
     controlProfilePreview()
-    exploreView.exploreHandler(controlExplore);
+    exploreView.exploreHandler(controlExplore, controlSidebarLinks);
     exploreView.detailViewHandler(controlDetailView);
     profileView.profileHandler(controlProfile);
     profileView.showListHandler(controlShowList);

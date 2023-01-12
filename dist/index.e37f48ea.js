@@ -584,6 +584,9 @@ const controlDisplayWallet = function() {
         console.log(error);
     }
 };
+const controlSidebarLinks = ()=>{
+    (0, _headerViewJsDefault.default).toggleSidebar();
+};
 const controlConnectWallet = async function() {
     try {
         await _modelJs.getUserAccount();
@@ -630,7 +633,6 @@ const controlProfile = async function() {
 };
 const controlExplore = async function() {
     try {
-        (0, _headerViewJsDefault.default).toggleSidebar();
         (0, _exploreViewJsDefault.default).render();
     } catch (error) {
         console.log(error);
@@ -682,7 +684,7 @@ const init = function() {
     controlConnected();
     controlHero();
     controlProfilePreview();
-    (0, _exploreViewJsDefault.default).exploreHandler(controlExplore);
+    (0, _exploreViewJsDefault.default).exploreHandler(controlExplore, controlSidebarLinks);
     (0, _exploreViewJsDefault.default).detailViewHandler(controlDetailView);
     (0, _profileViewJsDefault.default).profileHandler(controlProfile);
     (0, _profileViewJsDefault.default).showListHandler(controlShowList);
@@ -1328,9 +1330,15 @@ class exploreView extends (0, _viewJsDefault.default) {
     _parentElement = document.querySelector(".main");
     exploreCta = document.querySelector(".explore-cta");
     exploreLink = document.querySelectorAll(".explore-link");
-    exploreHandler(handler) {
+    exploreHandler(handler, handler2) {
         this.exploreLink.forEach((btn)=>{
-            btn.addEventListener("click", handler);
+            btn.addEventListener("click", ()=>{
+                if (btn.closest(".sidebar")) {
+                    console.log("here");
+                    handler2();
+                }
+                handler();
+            });
         });
     }
     detailViewHandler(handler) {
