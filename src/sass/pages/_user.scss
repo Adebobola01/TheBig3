@@ -288,3 +288,37 @@
     opacity: 1;
     transform: translateX(0);
 }
+
+
+@media (max-width: 800px){
+    .profile {
+        &__nft-preview {
+            width: 23rem;
+        }
+
+        &__user--body{
+            padding: 0;
+        }
+
+    }
+    .profile > .nft__details--preview{
+        width: 21rem
+    }
+}
+
+@media (max-width: 730px){
+    .profile{
+        &__nft-preview{
+            display: none
+        }
+        &__user--body{
+
+            padding: 2rem;
+            margin-top: 6rem;
+        }
+        &__nft-container{
+            width: 30rem;
+            height: 40rem;
+        }
+    }
+}
