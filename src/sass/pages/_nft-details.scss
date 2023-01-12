@@ -137,3 +137,9 @@
     background-color: transparent;
     border: 1px solid #fff;
 }
+
+@media (max-width: 450px){
+    .purchase{
+        margin-left: 0;
+    }
+}

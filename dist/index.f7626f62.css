@@ -1332,6 +1332,12 @@ body {
   border: 1px solid #fff;
 }
 
+@media (max-width: 450px) {
+  .purchase {
+    margin-left: 0;
+  }
+}
+
 .section-hero {
   background-image: linear-gradient(#101d2ce6, #101d2ce6), url("background-Image.57113f43.jpg");
   background-position: top;
