@@ -974,21 +974,25 @@ body {
   font-size: 1.2rem;
 }
 
+.list-box {
+  opacity: 0;
+  transition: all 1s;
+  display: none;
+  position: absolute;
+  right: 0;
+  transform: translateX(1000px);
+}
+
 .list__container {
   height: 100%;
   width: 25rem;
   z-index: 5;
-  opacity: 0;
   background-color: #1e1c2e;
   flex-direction: column;
   align-items: center;
   padding: 2rem;
   font-size: 2rem;
-  transition: all 1s;
   display: flex;
-  position: absolute;
-  right: 0;
-  transform: translateX(1000px);
 }
 
 .list-close {
@@ -1118,6 +1122,7 @@ body {
 
 .open-list {
   opacity: 1;
+  display: block;
   transform: translateX(0);
 }
 

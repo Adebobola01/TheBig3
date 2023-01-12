@@ -1101,7 +1101,7 @@ class profileView extends (0, _viewJsDefault.default) {
     profileLink = document.querySelectorAll(".profile-link");
     contentBody = document.querySelector(".profile__user--body");
     container = document.querySelector(".profile__user");
-    listContainer = document.querySelector(".list__container");
+    listContainer = document.querySelector(".list-box");
     backdrop = document.querySelector("backdrop");
     // profileBody = document.querySelector(".profile__user--body");
     content = "";
@@ -1247,31 +1247,33 @@ class profileView extends (0, _viewJsDefault.default) {
         }
         return `
         <div class="profile">
-            <div class="list__container">
-                <span class="list-close">X</span>
-                <div class="list-preview">
-                    
-                </div>
-                <div class="list__price">
-                    <p>Price</p>
-                    <div class="list__price-container"> 
-                        <input class="list__price--input" placeholder="Amount" type="number"></input>
-                        <img src="${0, _ethereumEthLogoSvgDefault.default}">
+            <div class="list-box">
+                <div class="list__container">
+                    <span class="list-close">X</span>
+                    <div class="list-preview">
+                        
                     </div>
+                    <div class="list__price">
+                        <p>Price</p>
+                        <div class="list__price-container"> 
+                            <input class="list__price--input" placeholder="Amount" type="number"></input>
+                            <img src="${0, _ethereumEthLogoSvgDefault.default}">
+                        </div>
+                    </div>
+                    <div class="list__price">
+                    <p>Duration</p>
+                    <div class="list__price-container"> 
+                        <input class="list__duration--input" placeholder="24" type="number"></input>
+                        <select name="duration" id="duration" class="list__duration--select">
+                            <option value="hours">Hours</option>
+                            <option value="days">Days</option>
+                            <option value="weeks">Weeks</option>
+                            <option value="months">Months</option>
+                        </select>
+                    </div>
+                    </div>
+                    <button class="list-btn">List</button>
                 </div>
-                <div class="list__price">
-                <p>Duration</p>
-                <div class="list__price-container"> 
-                    <input class="list__duration--input" placeholder="24" type="number"></input>
-                    <select name="duration" id="duration" class="list__duration--select">
-                        <option value="hours">Hours</option>
-                        <option value="days">Days</option>
-                        <option value="weeks">Weeks</option>
-                        <option value="months">Months</option>
-                    </select>
-                </div>
-                </div>
-                <button class="list-btn">List</button>
             </div>
             <section class="profile__nft-preview">
             <div class="nft__details--preview">
