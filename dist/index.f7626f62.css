@@ -960,10 +960,6 @@ body {
   opacity: .7;
 }
 
-.profile__nft-container:not(:last-child) {
-  margin-right: 2rem;
-}
-
 .profile__nft-image {
   height: 70%;
   width: 100%;
@@ -1179,6 +1175,12 @@ body {
   .profile__nft-container {
     width: 30rem;
     height: 40rem;
+  }
+}
+
+@media (max-width: 460px) {
+  .profile__nft-container {
+    margin-right: 0;
   }
 }
 

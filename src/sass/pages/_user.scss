@@ -91,9 +91,9 @@
                 }
             }
 
-            &:not(:last-child) {
-                margin-right: 2rem;
-            }
+            // &:not(:last-child) {
+            //     margin-right: 2rem;
+            // }
         }
 
         &-image {
@@ -323,6 +323,14 @@
         &__nft-container{
             width: 30rem;
             height: 40rem;
+        }
+    }
+}
+
+@media (max-width: 460px){
+    .profile{
+        &__nft-container{
+            margin-right: 0;
         }
     }
 }
