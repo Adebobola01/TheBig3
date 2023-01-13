@@ -976,22 +976,22 @@ body {
 
 .list-box {
   opacity: 0;
-  transition: all 1s;
+  z-index: 5;
+  height: 100%;
   display: none;
   position: absolute;
   right: 0;
-  transform: translateX(1000px);
+  transform: translateX(100vw);
 }
 
 .list__container {
   height: 100%;
   width: 25rem;
-  z-index: 5;
   background-color: #1e1c2e;
   flex-direction: column;
   align-items: center;
   padding: 2rem;
-  font-size: 2rem;
+  font-size: 3rem;
   display: flex;
 }
 
@@ -1024,6 +1024,8 @@ body {
 .list-preview {
   width: 100%;
   border-bottom: 1px solid gray;
+  align-items: center;
+  margin-top: 14rem;
   margin-bottom: 2rem;
   padding: 1rem;
   display: flex;
@@ -1037,7 +1039,9 @@ body {
 }
 
 .list-preview__details {
+  font-family: Gill Sans, Gill Sans MT, Calibri, Trebuchet MS, sans-serif;
   font-size: 2.5rem;
+  font-weight: 900;
 }
 
 .list-preview__details h3 {
@@ -1051,7 +1055,7 @@ body {
 
 .list__price p {
   margin: 0 0 .8rem;
-  font-size: 1.4rem;
+  font-size: 1.8rem;
 }
 
 .list__price-container {
@@ -1122,8 +1126,8 @@ body {
 
 .open-list {
   opacity: 1;
+  animation: .8s forwards sidebar;
   display: block;
-  transform: translateX(0);
 }
 
 @media (max-width: 800px) {

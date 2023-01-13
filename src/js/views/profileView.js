@@ -103,7 +103,7 @@ class profileView extends View {
 
     openListContainer() {
         document
-            .querySelector(".list__container")
+            .querySelector(".list-box")
             .classList.toggle("open-list");
     }
     showListHandler(handler) {

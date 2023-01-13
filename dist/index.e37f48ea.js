@@ -556,10 +556,7 @@ const controlInitialState = async ()=>{
     const urlSearchParams = new URLSearchParams(window.location.search);
     let params = Object.fromEntries(urlSearchParams.entries());
     if (params.code) {
-        console.log(params.code);
         _modelJs.state.authCode = params.code;
-        params = "";
-        const authType = localStorage.getItem("authType");
         _modelJs.googleCode();
     }
     ethereum.on("chainChanged", (chainId)=>{
@@ -1174,7 +1171,7 @@ class profileView extends (0, _viewJsDefault.default) {
         });
     }
     openListContainer() {
-        document.querySelector(".list__container").classList.toggle("open-list");
+        document.querySelector(".list-box").classList.toggle("open-list");
     }
     showListHandler(handler) {
         this._parentElement.addEventListener("click", (e)=>{
