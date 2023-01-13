@@ -69,3 +69,9 @@
         display: none;
     }
 }
+
+@media (max-width: 365px){
+    .addr-container{
+        font-size: 1.2rem;
+    }
+}

@@ -641,6 +641,22 @@ body {
   }
 }
 
+@media (max-width: 365px) {
+  .nav-bar {
+    justify-content: space-between;
+  }
+
+  .logo {
+    margin-right: 3rem;
+  }
+}
+
+@media (max-width: 333px) {
+  .logo {
+    margin-right: 1.8rem;
+  }
+}
+
 .nav {
   flex-grow: .5;
   justify-content: space-between;
@@ -705,6 +721,12 @@ body {
 
   .pc__connect {
     display: none;
+  }
+}
+
+@media (max-width: 365px) {
+  .addr-container {
+    font-size: 1.2rem;
   }
 }
 
