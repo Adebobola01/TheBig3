@@ -19,13 +19,10 @@ if (module.hot) {
 
 const controlInitialState = async () => {
     const urlSearchParams = new URLSearchParams(window.location.search);
-    const params = Object.fromEntries(urlSearchParams.entries());
+    let params = Object.fromEntries(urlSearchParams.entries());
     if (params.code) {
-        console.log(params.code)
         model.state.authCode = params.code;
-        const authType = localStorage.getItem("authType");
-        // console.log(authType)
-        // model.googleCode()
+        model.googleCode()
     }
     ethereum.on("chainChanged", (chainId) => {
         if (chainId === "0x5") {

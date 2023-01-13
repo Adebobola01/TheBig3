@@ -554,13 +554,13 @@ const address = localStorage.getItem("address");
 if (module.hot) module.hot.accept();
 const controlInitialState = async ()=>{
     const urlSearchParams = new URLSearchParams(window.location.search);
-    const params = Object.fromEntries(urlSearchParams.entries());
+    let params = Object.fromEntries(urlSearchParams.entries());
     if (params.code) {
         console.log(params.code);
         _modelJs.state.authCode = params.code;
+        params = "";
         const authType = localStorage.getItem("authType");
-    // console.log(authType)
-    // model.googleCode()
+        _modelJs.googleCode();
     }
     ethereum.on("chainChanged", (chainId)=>{
         if (chainId === "0x5") window.location.reload();
