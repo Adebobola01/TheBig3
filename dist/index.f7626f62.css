@@ -602,7 +602,10 @@ body {
 
 @media (max-width: 600px) {
   .logo {
-    margin-right: 6rem;
+    width: 100%;
+    justify-content: center;
+    margin-right: 0;
+    display: flex;
   }
 
   .search {
@@ -619,7 +622,6 @@ body {
   .nav-bar {
     width: 100%;
     justify-content: flex-end;
-    padding-right: 1rem;
   }
 
   .toggle-button {
@@ -632,28 +634,8 @@ body {
     padding-left: 1rem;
   }
 
-  .logo {
-    margin-right: 5rem;
-  }
-
   .logout-btn {
     margin-left: 1rem;
-  }
-}
-
-@media (max-width: 365px) {
-  .nav-bar {
-    justify-content: space-between;
-  }
-
-  .logo {
-    margin-right: 3rem;
-  }
-}
-
-@media (max-width: 333px) {
-  .logo {
-    margin-right: 1.8rem;
   }
 }
 

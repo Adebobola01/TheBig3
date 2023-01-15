@@ -160,7 +160,11 @@
 
     .logo{
         // align-self: center;
-        margin-right: 6rem;
+        // margin-right: 6rem;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-right: 0;
     }
 
     .search{
@@ -175,7 +179,6 @@
     }
     .nav-bar{
         justify-content: flex-end;
-        padding-right: 1rem;
         width: 100%;
     }
     .toggle-button{
@@ -189,26 +192,25 @@
     }
 
     .logo{
-        margin-right: 5rem;
     }
     .logout-btn{
         margin-left: 1rem;
     }
 }
 
-@media (max-width: 365px){
+// @media (max-width: 365px){
 
-    .nav-bar{
-        justify-content: space-between;
-    }
+//     .nav-bar{
+//         justify-content: space-between;
+//     }
 
-    .logo{
-        margin-right: 3rem;
-    }
-}
+//     .logo{
+//         margin-right: 3rem;
+//     }
+// }
 
 @media (max-width: 333px){
     .logo{
-        margin-right: 1.8rem;
+        // margin-right: 1.8rem;
     }
 }
