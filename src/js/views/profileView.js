@@ -178,7 +178,7 @@ class profileView extends View {
                                     <span>${n.name} collection</span>
                                     <h3>${n.metadata.name}</h3>
                                 </div>
-                                <button class"list-cta">List</button>
+                                <button class="list-cta">List</button>
                             </div>
                         </div>    
                         `);

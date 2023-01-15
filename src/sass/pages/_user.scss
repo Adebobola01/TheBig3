@@ -109,6 +109,7 @@
 
         &-details {
             display: flex;
+            justify-content: space-between;
             padding: 0.5rem 1rem;
             background-color: rgb(63, 62, 77);
             font-size: 6rem;
@@ -183,7 +184,10 @@
     }
 
     &-cta{
-        
+        border-radius: 1.2rem;
+        background-color: #db469f;
+        color: white;
+        font-size: 2rem;
     }
 
     &-preview {

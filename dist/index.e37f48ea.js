@@ -1238,7 +1238,7 @@ class profileView extends (0, _viewJsDefault.default) {
                                     <span>${n.name} collection</span>
                                     <h3>${n.metadata.name}</h3>
                                 </div>
-                                <button class"list-cta">List</button>
+                                <button class="list-cta">List</button>
                             </div>
                         </div>    
                         `;
