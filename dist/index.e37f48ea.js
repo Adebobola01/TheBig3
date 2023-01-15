@@ -1226,19 +1226,20 @@ class profileView extends (0, _viewJsDefault.default) {
             this._data.forEach((n)=>{
                 if (n.metadata) return this.content = this.content + `
                         <div class="profile__nft-container" data-name="${n.metadata.name}" data-image="${n.metadata.image}" data-contractAddress="${n.tokenAddress}" data-collection="${n.name}">
-                            <p class="list-cta">+</p>
+                            <p class="list-icon">+</p>
                             <div class="profile__nft-image">
-                            <img
+                                <img
                                     src="${n.metadata.image}"
                                     alt="profile image"
                                 />
-                                </div>
-                                <div class="profile__nft-details">
+                            </div>
+                            <div class="profile__nft-details">
                                 <div class="profile__nft-description">
                                     <span>${n.name} collection</span>
                                     <h3>${n.metadata.name}</h3>
-                                    </div>
                                 </div>
+                                <button class"list-cta">List</button>
+                            </div>
                         </div>    
                         `;
             });
