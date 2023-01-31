@@ -630,6 +630,7 @@ const controlProfile = async function() {
 };
 const controlExplore = async function() {
     try {
+        // window.location.href = "http://localhost:1234/explore"
         (0, _exploreViewJsDefault.default).render();
     } catch (error) {
         console.log(error);
